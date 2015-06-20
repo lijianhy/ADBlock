@@ -1,4 +1,9 @@
-package com.ad.block;
+package com.ad.block.view;
+
+import com.ad.block.R;
+import com.ad.block.R.id;
+import com.ad.block.R.layout;
+import com.ad.block.R.menu;
 
 import android.app.Activity;
 import android.os.Bundle;
