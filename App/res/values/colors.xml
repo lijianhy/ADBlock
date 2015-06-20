@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="trans">#00000000</color>
+    <color name="blue">#4A90E2</color>
+    <color name="orange">#FF8C00</color>
+    <color name="green">#00FF00</color>
+    <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="sex_red">#FF6666</color>
+    <color name="sex_blue">#FF4A90E2</color>
+    <color name="credit_red">#FF4338</color>
+    <color name="credit_orange">#F5a623</color>
+    <color name="credit_blue">#4A90E2</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="gray">#BEBEBE</color>
+    <color name="white">#FFFFFF</color>
+    <color name="bg_title">#FF262626</color>
+    <color name="background">#FFF0EFF5</color>
+    <color name="diving">#FFe5e5e5</color>
+    <color name="textGray">#FF919191</color>
+    <color name="textNormal">#FF444444</color>
+    <color name="pink">#fffd7477</color>
+    <color name="orange_red">#ffef3c28</color>
+    <color name="identify_red">#aaff4338</color>
+    <color name="bg_line">#aaaaaaaa</color>
+    <color name="text_title">#5c5c5c</color>
+    
+    <color name="common_bottom_bar_normal_bg">#00ffffff</color>
+    <color name="common_bottom_bar_selected_bg">#00ffffff</color>
+    <color name="voip_interface_text_color">#bababa</color>
+    <color name="btn_register_pressed">#4ebcd3</color>
+    <color name="btn_register_normal">#2dafa3</color>
+
+</resources>
