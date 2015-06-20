@@ -1,16 +1,137 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ad.block.view.MainActivity" >
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:ignore="RtlSymmetry,HardcodedText,RtlHardcoded" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="#00cd00"
+        android:orientation="vertical"
+        android:padding="10dp" >
 
-</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/title_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="ADBlock"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/amain_img_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:paddingRight="5dp"
+                android:src="@drawable/menu" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp" >
+
+            <TextView
+                android:id="@+id/amain_text_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="000625"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/amain_text_count"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="已阻止骚扰次数"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/amain_text_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="已开启过滤"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+        
+        <View 
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="#000000"
+            />
+        <TextView
+            android:id="@+id/amain_text_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="关于我们"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+        
+        <View 
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="#000000"
+            />
+        <TextView
+            android:id="@+id/amain_text_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="我要分享"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+        
+        <View 
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="#000000"
+            />
+        
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="ADBlock广告过滤大师 版本：1.0.0.1000"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            />
+        
+    </LinearLayout>
+
+</LinearLayout>

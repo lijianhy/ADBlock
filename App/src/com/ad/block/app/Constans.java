@@ -6,4 +6,6 @@ package com.ad.block.app;
  */
 public class Constans {
 
+	public static final String KEY_IS_FIRST = "IS_FIRST";
+
 }
