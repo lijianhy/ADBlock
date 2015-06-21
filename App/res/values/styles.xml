@@ -28,5 +28,14 @@
         <item name="android:textColor">@color/text_title</item>
         <item name="android:textSize">@dimen/text_big</item>
     </style>
+    
+    <style name="TitleLeft" parent="WrapContent">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginLeft">45dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_title</item>
+        <item name="android:textSize">@dimen/text_big</item>
+    </style>
 
 </resources>

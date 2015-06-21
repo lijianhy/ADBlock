@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <RelativeLayout
+        android:id="@+id/about_view_back"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/background" >
+
+        <include layout="@layout/view_title_lback" />
+
+        <TextView
+            style="@style/TitleLeft"
+            android:text="关于" />
+    </RelativeLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical">
+        
+        <ImageView
+            android:layout_width="210dp"
+            android:layout_height="240dp"
+            android:background="@drawable/about_logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="35dp"/>
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="官方网站：www.adblock.cn"
+            android:layout_gravity="center_horizontal"/>
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QQ群：235715851"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"/>
+        
+    </LinearLayout>
+    
+    <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="ADBlock广告过滤大师 版本：1.0.0.1000"/>
+
+</LinearLayout>

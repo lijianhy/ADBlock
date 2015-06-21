@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <RelativeLayout
+        android:id="@+id/about_view_back"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/background" >
+
+        <include layout="@layout/view_title_lback" />
+
+        <TextView
+            style="@style/TitleLeft"
+            android:text="设置" />
+    </RelativeLayout>
+    
+    
+    
+</LinearLayout>
