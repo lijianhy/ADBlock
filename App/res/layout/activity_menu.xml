@@ -14,7 +14,7 @@
         <include layout="@layout/view_title_back" />
 
         <TextView
-            style="@style/TitleText"
+            style="@style/TitleLeft"
             android:text="菜单" />
     </RelativeLayout>
     
