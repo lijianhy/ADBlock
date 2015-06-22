@@ -14,7 +14,7 @@
         <include layout="@layout/view_title_back" />
 
         <TextView
-            style="@style/TitleLeft"
+            style="@style/TitleText"
             android:text="菜单" />
     </RelativeLayout>
     
@@ -28,9 +28,9 @@
             android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/amenu_setting"
+        android:id="@+id/amenu_view_setting"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -73,9 +73,9 @@
         android:layout_marginRight="10dp" />
     
     <LinearLayout
-        android:id="@+id/amenu_mode"
+        android:id="@+id/amenu_view_mode"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -118,9 +118,9 @@
         android:layout_marginRight="10dp" />
     
     <LinearLayout
-        android:id="@+id/amenu_suggest"
+        android:id="@+id/amenu_view_suggest"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -163,9 +163,9 @@
         android:layout_marginRight="10dp" />
     
     <LinearLayout
-        android:id="@+id/amenu_about"
+        android:id="@+id/amenu_view_about"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -208,9 +208,9 @@
         android:layout_marginRight="10dp" />
     
     <LinearLayout
-        android:id="@+id/amenu_feedback"
+        android:id="@+id/amenu_view_feedback"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -253,9 +253,9 @@
         android:layout_marginRight="10dp" />
     
     <LinearLayout
-        android:id="@+id/amenu_checkupdate"
+        android:id="@+id/amenu_view_checkupdate"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -297,7 +297,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp" />
     
-    <Button 
+    <Button
+        android:id="@+id/amenu_btn_logout" 
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"

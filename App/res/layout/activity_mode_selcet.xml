@@ -53,11 +53,13 @@
                     android:textSize="@dimen/text_normal" />
 
                 <RadioButton
+                    android:id="@+id/ams_btn_vpn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|right"
                     android:background="@drawable/bg_radiobutton"
-                    android:button="@null" />
+                    android:button="@null"
+                    android:checked="true" />
             </LinearLayout>
 
             <View
@@ -96,6 +98,7 @@
                     android:textSize="@dimen/text_normal" />
 
                 <RadioButton
+                    android:id="@+id/ams_btn_root"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|right"
