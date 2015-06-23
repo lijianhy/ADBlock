@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-public class AboutActivity extends Activity implements OnClickListener {
+public class AboutActivity extends BaseActivity implements OnClickListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

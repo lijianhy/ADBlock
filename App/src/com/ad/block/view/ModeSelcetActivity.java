@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RadioButton;
 
-public class ModeSelcetActivity extends Activity implements OnClickListener {
+public class ModeSelcetActivity extends BaseActivity implements OnClickListener {
 	
 	private RadioButton btnVpn;
 	private RadioButton btnRoot;

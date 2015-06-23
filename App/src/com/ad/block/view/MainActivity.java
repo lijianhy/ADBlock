@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.ad.block.R;
 import com.ad.block.widgets.ShareDialog;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends BaseActivity implements OnClickListener {
 
 	private View viewTop;
 	private View viewMenu;

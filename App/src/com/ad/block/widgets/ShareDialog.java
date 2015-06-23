@@ -31,7 +31,7 @@ import com.umeng.socialize.controller.listener.SocializeListeners.SnsPostListene
 public class ShareDialog extends Dialog implements OnItemClickListener {
 
 	UMSocialService mController = UMServiceFactory
-			.getUMSocialService("myshare");
+			.getUMSocialService("com.umeng.share");
 	private List<SHARE_MEDIA> mPlatforms;
 
 	private MSnsListener mListener;

@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MenuActivity extends Activity implements OnClickListener {
+public class MenuActivity extends BaseActivity implements OnClickListener {
 	
 	private View viewSetting;
 	private View viewMode;

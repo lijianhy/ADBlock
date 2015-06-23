@@ -13,7 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class FeedBackActivity extends Activity implements OnClickListener {
+public class FeedBackActivity extends BaseActivity implements OnClickListener {
 	
 	private EditText edtFeedback;
 	private Button btnSubmit;
