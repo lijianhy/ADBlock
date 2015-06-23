@@ -50,6 +50,14 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp" >
 
+            <View 
+                android:id="@+id/amain_view_circle"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/oval_white_storken"
+                android:layout_centerInParent="true"
+                />
+            
             <TextView
                 android:id="@+id/amain_text_count"
                 android:layout_width="wrap_content"

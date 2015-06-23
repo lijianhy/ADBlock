@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="${relativePackage}.${activityClass}" >
+    tools:context="${relativePackage}.${activityClass}"
+    tools:ignore="RtlSymmetry,HardcodedText,RtlHardcoded,ContentDescription" >
 
     <RelativeLayout
         android:id="@+id/about_view_back"
@@ -98,41 +99,215 @@
             android:text="1002146次热度"
             android:textColor="@color/textGray" />
     </RelativeLayout>
-    
-    <View 
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/bg_line"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/stork_trans"
+        android:orientation="horizontal"
+        android:padding="10dp" >
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@drawable/bg_tab_select"
-            android:text="讨论" />
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/arrow_green"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="安全"
+            android:textColor="@color/textNormal"
+            android:textSize="@dimen/text_l" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@color/red"
-            android:text="软件介绍" />
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/arrow_green"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="无广告"
+            android:textColor="@color/textNormal"
+            android:textSize="@dimen/text_l" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@color/blue"
-            android:text="热门应用" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text=">" />
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+         >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_gui1" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_gui2" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/img_gui3" />
+            </LinearLayout>
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                >
+                
+                <TextView 
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="版本：2.5.0.1009"
+                    android:textColor="@color/textNormal"
+                    android:textSize="@dimen/text_l"
+                    />
+                
+                <TextView 
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="大小：2.5.0.1009"
+                    android:textColor="@color/textNormal"
+                    android:textSize="@dimen/text_l"
+                    />
+                
+            </LinearLayout>
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                >
+                
+                <TextView 
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="时间：2015-4-13"
+                    android:textColor="@color/textNormal"
+                    android:textSize="@dimen/text_l"
+                    />
+                
+                <TextView 
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="语言：中文版"
+                    android:textColor="@color/textNormal"
+                    android:textSize="@dimen/text_l"
+                    />
+                
+            </LinearLayout>
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="简介"
+                android:textColor="@color/green"
+                android:textSize="@dimen/text_big"
+                />
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                />
+            
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="我是简洁我是简洁我是简洁我是简洁我是简洁我是简洁"
+                android:textColor="@color/textNormal"
+                android:textSize="@dimen/text_l"
+                />
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="更新内容"
+                android:textColor="@color/green"
+                android:textSize="@dimen/text_big"
+                />
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                />
+            
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="1.我是更新内容"
+                android:textColor="@color/textNormal"
+                android:textSize="@dimen/text_l"
+                />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="2.我是更新内容"
+                android:textColor="@color/textNormal"
+                android:textSize="@dimen/text_l"
+                />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="3.我是更新内容"
+                android:textColor="@color/textNormal"
+                android:textSize="@dimen/text_l"
+                />
+        </LinearLayout>
+    </ScrollView>
+    
+    <Button 
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@color/orange_red"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:text="省流量升级"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_normal"
+        />
 
 </LinearLayout>
