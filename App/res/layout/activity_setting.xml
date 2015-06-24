@@ -51,6 +51,14 @@
                 android:singleLine="true"
                 android:textColor="@color/textGray"
                 android:textSize="@dimen/text_normal" />
+
+            <com.ad.block.widgets.CheckSwitchButton
+                android:id="@+id/as_switchbutton_notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:enabled="true" />
+            
         </LinearLayout>
 
         <View
@@ -87,6 +95,14 @@
                 android:singleLine="true"
                 android:textColor="@color/textGray"
                 android:textSize="@dimen/text_normal" />
+            
+            <com.ad.block.widgets.CheckSwitchButton
+                android:id="@+id/as_switchbutton_desktop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:enabled="true" />
+            
         </LinearLayout>
 
         <View
@@ -124,6 +140,14 @@
             android:singleLine="true"
             android:textColor="@color/textGray"
             android:textSize="@dimen/text_normal" />
+        
+        <com.ad.block.widgets.CheckSwitchButton
+                android:id="@+id/as_switchbutton_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:enabled="true" />
+        
     </LinearLayout>
 
     <View
