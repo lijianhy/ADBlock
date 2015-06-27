@@ -52,9 +52,24 @@
 
             <View 
                 android:id="@+id/amain_view_circle"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
                 android:background="@drawable/oval_white_storken"
+                android:layout_centerInParent="true"
+                />
+            
+            <View 
+                android:id="@+id/amain_view_circleout"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:background="@drawable/oval_white_storken"
+                android:layout_centerInParent="true"
+                />
+            
+            <View 
+                android:id="@+id/amian_view_center"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
                 android:layout_centerInParent="true"
                 />
             
@@ -62,7 +77,8 @@
                 android:id="@+id/amain_text_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_below="@id/amian_view_center"
+                android:layout_centerHorizontal="true"
                 android:text="000625"
                 android:textColor="@color/white"
                 android:textSize="40sp" />
@@ -70,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/amain_text_count"
+                android:layout_above="@id/amian_view_center"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:text="已阻止骚扰次数"

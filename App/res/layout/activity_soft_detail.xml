@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -145,14 +146,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-         >
+        android:layout_weight="1" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:padding="10dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -179,135 +179,138 @@
                     android:layout_weight="1"
                     android:src="@drawable/img_gui3" />
             </LinearLayout>
-            <LinearLayout 
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="5dp"
-                >
-                
-                <TextView 
+                android:orientation="horizontal" >
+
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="版本：2.5.0.1009"
                     android:textColor="@color/textNormal"
-                    android:textSize="@dimen/text_l"
-                    />
-                
-                <TextView 
+                    android:textSize="@dimen/text_l" />
+
+                <TextView
+                    android:id="@+id/asd_text_size"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="大小：2.5.0.1009"
                     android:textColor="@color/textNormal"
-                    android:textSize="@dimen/text_l"
-                    />
-                
+                    android:textSize="@dimen/text_l" />
             </LinearLayout>
-            <LinearLayout 
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="5dp"
-                >
-                
-                <TextView 
+                android:orientation="horizontal" >
+
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="时间：2015-4-13"
                     android:textColor="@color/textNormal"
-                    android:textSize="@dimen/text_l"
-                    />
-                
-                <TextView 
+                    android:textSize="@dimen/text_l" />
+
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="语言：中文版"
                     android:textColor="@color/textNormal"
-                    android:textSize="@dimen/text_l"
-                    />
-                
+                    android:textSize="@dimen/text_l" />
             </LinearLayout>
-            
-            <TextView 
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="简介"
                 android:textColor="@color/green"
-                android:textSize="@dimen/text_big"
-                />
-            
-            <View 
+                android:textSize="@dimen/text_big" />
+
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"
-                />
-            
-            <TextView 
+                android:background="@color/black" />
+
+            <cn.adblock.widgets.ExpandableTextView
+                android:id="@+id/asd_expand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="我是简洁我是简洁我是简洁我是简洁我是简洁我是简洁"
-                android:textColor="@color/textNormal"
-                android:textSize="@dimen/text_l"
-                />
-            
-            <TextView 
+                expandableTextView:maxCollapsedLines="4" >
+
+                <TextView
+                    android:id="@+id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/textNormal"
+                    android:textSize="@dimen/text_l" />
+
+                <ImageButton
+                    android:id="@id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:layout_margin="16dp"
+                    android:background="@android:color/transparent" />
+            </cn.adblock.widgets.ExpandableTextView>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="更新内容"
                 android:textColor="@color/green"
-                android:textSize="@dimen/text_big"
-                />
-            
-            <View 
+                android:textSize="@dimen/text_big" />
+
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"
-                />
-            
-            <TextView 
+                android:background="@color/black" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="1.我是更新内容"
                 android:textColor="@color/textNormal"
-                android:textSize="@dimen/text_l"
-                />
-            <TextView 
+                android:textSize="@dimen/text_l" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="2.我是更新内容"
                 android:textColor="@color/textNormal"
-                android:textSize="@dimen/text_l"
-                />
-            <TextView 
+                android:textSize="@dimen/text_l" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="3.我是更新内容"
                 android:textColor="@color/textNormal"
-                android:textSize="@dimen/text_l"
-                />
+                android:textSize="@dimen/text_l" />
         </LinearLayout>
     </ScrollView>
-    
-    <Button 
+
+    <Button
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:background="@color/orange_red"
         android:layout_gravity="center_horizontal"
-        android:gravity="center"
         android:layout_margin="10dp"
+        android:background="@color/orange_red"
+        android:gravity="center"
         android:text="省流量升级"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_normal"
-        />
+        android:textSize="@dimen/text_normal" />
 
 </LinearLayout>
