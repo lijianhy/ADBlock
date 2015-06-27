@@ -96,7 +96,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						* 1.0f / (24 * dp10));
 			}
 		});
-		AnimationDrawable animationDrawable = (AnimationDrawable)imgState.getDrawable();
+		AnimationDrawable animationDrawable = (AnimationDrawable) imgState
+				.getDrawable();
 		if (state == 0) {
 			textState.setText("未开启过滤");
 			ValueAnimator colorAnim = ObjectAnimator.ofInt(viewTop,
