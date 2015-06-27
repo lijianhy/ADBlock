@@ -1,7 +1,4 @@
-package com.ad.block.widgets;
-
-import com.ad.block.R;
-import com.ad.block.widgets.FrameAnimationController;
+package cn.adblock.widgets;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -18,7 +15,7 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.widget.CheckBox;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+import cn.adblock.R;
 
 public class CheckSwitchButton extends CheckBox {
 	private Paint mPaint;

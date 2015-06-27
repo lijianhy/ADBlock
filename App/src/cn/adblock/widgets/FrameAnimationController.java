@@ -1,4 +1,4 @@
-package com.ad.block.widgets;
+package cn.adblock.widgets;
 
 import android.os.Handler;
 import android.os.Message;
