@@ -15,6 +15,7 @@ public class ModeSelcetActivity extends BaseActivity implements OnClickListener 
 	
 	private RadioButton btnVpn;
 	private RadioButton btnRoot;
+	private View viewBack;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,13 @@ public class ModeSelcetActivity extends BaseActivity implements OnClickListener 
 	private void initView(){
 		btnRoot = (RadioButton) findViewById(R.id.ams_btn_root);
 		btnVpn = (RadioButton) findViewById(R.id.ams_btn_vpn);
+		viewBack = (View) findViewById(R.id.about_view_back);
 	}
 	
 	private void setListener(){
 		btnRoot.setOnClickListener(this);
 		btnVpn.setOnClickListener(this);
+		viewBack.setOnClickListener(this);
 	}
 	
 	@Override
@@ -49,6 +52,9 @@ public class ModeSelcetActivity extends BaseActivity implements OnClickListener 
 		case R.id.ams_btn_vpn:
 			btnVpn.setChecked(true);
 			btnRoot.setChecked(false);
+			break;
+		case R.id.about_view_back:
+			finish();
 		}
 	}
 	

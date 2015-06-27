@@ -9,9 +9,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/background" >
+        android:background="@color/background"
+        android:focusable="true" 
+        android:focusableInTouchMode="true"  >
 
-        <include layout="@layout/view_text_back" />
+        <include layout="@layout/view_title_lback" />
 
         <TextView
             style="@style/TitleText"

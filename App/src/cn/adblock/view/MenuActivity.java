@@ -87,6 +87,7 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 			break;
 		case R.id.amenu_btn_logout:
 			onLogoutClick();
+			break;
 		}
 	}
 	
@@ -157,7 +158,7 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 		Toast toast = new Toast(getApplicationContext()); 
 		//设置Toast显示位置(起点位置,水平向右位移,垂直向下位移) 
 //		toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 1150); 
-		toast.setDuration(Toast.LENGTH_LONG); 
+		toast.setDuration(Toast.LENGTH_SHORT); 
 		//让Toast显示为我们自定义的样子 
 		toast.setView(layout); 
 		toast.show(); 

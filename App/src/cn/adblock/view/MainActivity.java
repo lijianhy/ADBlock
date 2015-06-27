@@ -1,6 +1,7 @@
 package cn.adblock.view;
 
 import u.aly.dp;
+import android.R.integer;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -87,8 +88,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			sc.addUpdateListener(new AnimatorUpdateListener() {
 				@Override
 				public void onAnimationUpdate(ValueAnimator animation) {
-					viewCircleOut.setScaleX(((int)animation.getAnimatedValue())*1.0f/(22*dp10));
-					viewCircleOut.setScaleY(((int)animation.getAnimatedValue())*1.0f/(22*dp10));
+					viewCircleOut.setScaleX(((Integer)animation.getAnimatedValue())*1.0f/(22*dp10));
+					viewCircleOut.setScaleY(((Integer)animation.getAnimatedValue())*1.0f/(22*dp10));
 				}
 			});
 			colorAnim.setDuration(2000);
@@ -104,8 +105,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			sc.addUpdateListener(new AnimatorUpdateListener() {
 				@Override
 				public void onAnimationUpdate(ValueAnimator animation) {
-					viewCircleOut.setScaleX(((int)animation.getAnimatedValue())*1.0f/(22*dp10));
-					viewCircleOut.setScaleY(((int)animation.getAnimatedValue())*1.0f/(22*dp10));
+					viewCircleOut.setScaleX(((Integer)animation.getAnimatedValue())*1.0f/(22*dp10));
+					viewCircleOut.setScaleY(((Integer)animation.getAnimatedValue())*1.0f/(22*dp10));
 				}
 			});
 			colorAnim.setDuration(2000);

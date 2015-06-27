@@ -7,19 +7,23 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 import cn.adblock.R;
 import cn.adblock.widgets.ExpandableTextView;
 
-public class SoftDetailActivity extends BaseActivity {
+public class SoftDetailActivity extends BaseActivity implements OnClickListener {
 
 	private TextView textSize;
+	private View viewBack;
+	private ExpandableTextView expand;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_soft_detail);
-		textSize = (TextView) findViewById(R.id.asd_text_size);
+		initView();
+		setListener();
 		SpannableStringBuilder ss = new SpannableStringBuilder("大小：");
 		int length = ss.length();
 		ss.append("5.68MB");
@@ -30,12 +34,31 @@ public class SoftDetailActivity extends BaseActivity {
 		ss.setSpan(new ForegroundColorSpan(Color.parseColor("#FF7F50")),
 				length, ss.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
 		textSize.setText(ss);
-		ExpandableTextView expand = (ExpandableTextView) findViewById(R.id.asd_expand);
 		expand.setText(getString(R.string.soft_detail));
 	}
 
 	public void onBack(View v) {
 		this.finish();
+	}
+	
+	private void initView(){
+		textSize = (TextView) findViewById(R.id.asd_text_size);
+		expand = (ExpandableTextView) findViewById(R.id.asd_expand);
+		viewBack = (View) findViewById(R.id.about_view_back);
+	}
+	
+	private void setListener(){
+		viewBack.setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View v) {
+		int vid = v.getId();
+		switch (vid) {
+		case R.id.about_view_back:
+			finish();
+			break;
+		}
 	}
 
 }

@@ -12,23 +12,32 @@ import android.view.View.OnClickListener;
 
 public class AboutActivity extends BaseActivity implements OnClickListener {
 	
+	private View viewBack;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
+		initView();
+		setListener();
 	}
 	
 	private void initView(){
-		
+		viewBack = (View) findViewById(R.id.about_view_back);
 	}
 	
 	private void setListener(){
-		
+		viewBack.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		
+		int vid = v.getId();
+		switch (vid) {
+		case R.id.about_view_back:
+			finish();
+			break;
+		}
 	}
 
 	public void onBack(View v) {
