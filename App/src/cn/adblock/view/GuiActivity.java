@@ -60,6 +60,7 @@ public class GuiActivity extends BaseActivity implements OnPageChangeListener, O
 		vpAdapter = new ViewPagerAdapter(views);
 		viewPager.setAdapter(vpAdapter);
 		viewPager.setOnPageChangeListener(this);
+		dots[0].setSelected(true);
 	}
 
 	@Override

@@ -66,12 +66,20 @@ public class ShareDialog extends Dialog implements OnItemClickListener {
 		mPlatforms.add(SHARE_MEDIA.SMS);
 		mPlatforms.add(SHARE_MEDIA.EMAIL);
 		mPlatforms.add(SHARE_MEDIA.DOUBAN);
+		((View) gv.getParent()).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dismiss();
+			}
+		});
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		if (position >= mPlatforms.size() || mPlatforms.get(position) == null) {
+			dismiss();
+			new QRCodeDialog(getContext()).show();
 			return;
 		}
 		mController.directShare(getContext(), mPlatforms.get(position),
@@ -90,14 +98,15 @@ public class ShareDialog extends Dialog implements OnItemClickListener {
 				R.drawable.share_qq, R.drawable.share_weixin,
 				R.drawable.share_qzone, R.drawable.share_renren,
 				R.drawable.share_tencent, R.drawable.share_msg,
-				R.drawable.share_mail, R.drawable.share_douban };
+				R.drawable.share_mail, R.drawable.share_douban,
+				R.drawable.share_qrcode };
 		final String[] items = { "新浪微博", "朋友圈", "百度贴吧", "腾讯QQ", "微信", "QQ空间",
-				"人人网", "腾讯微博", "短信", "邮件", "豆瓣" };
+				"人人网", "腾讯微博", "短信", "邮件", "豆瓣", "二维码" };
 		LayoutInflater lf;
 
 		@Override
 		public int getCount() {
-			return items.length + 1;
+			return items.length;
 		}
 
 		@Override

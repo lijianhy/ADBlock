@@ -1,6 +1,5 @@
 package cn.adblock.view;
 
-import u.aly.dp;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -8,9 +7,11 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.TextView;
 import cn.adblock.R;
 import cn.adblock.widgets.ShareDialog;
@@ -23,6 +24,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private View viewAbout;
 	private View viewShare;
 	private View viewCircleOut;
+	private ImageView imgState;
+	private TextView textState;
 	private TextView textCount;
 
 	// 0开启 1关闭
@@ -34,15 +37,18 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 		viewTop = findViewById(R.id.amain_view_top);
 		viewMenu = findViewById(R.id.amain_img_menu);
-		viewState = findViewById(R.id.amain_text_state);
+		viewState = findViewById(R.id.amain_view_state);
 		viewAbout = findViewById(R.id.amain_text_about);
 		viewShare = findViewById(R.id.amain_text_share);
 		viewCircleOut = findViewById(R.id.amain_view_circleout);
+		textState = (TextView) findViewById(R.id.amain_text_state);
 		textCount = (TextView) findViewById(R.id.amain_text_count);
+		imgState = (ImageView) findViewById(R.id.amain_img_state);
 		viewMenu.setOnClickListener(this);
 		viewState.setOnClickListener(this);
 		viewAbout.setOnClickListener(this);
 		viewShare.setOnClickListener(this);
+		((AnimationDrawable) imgState.getDrawable()).selectDrawable(0);
 	}
 
 	@Override
@@ -51,7 +57,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		case R.id.amain_img_menu:
 			onMenuClick();
 			break;
-		case R.id.amain_text_state:
+		case R.id.amain_view_state:
 			onStateClick();
 			break;
 		case R.id.amain_text_about:
@@ -78,47 +84,51 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						animation.getAnimatedValue()));
 			}
 		});
+		ValueAnimator sc = ObjectAnimator
+				.ofInt(dp10 * 24, dp10 * 19, dp10 * 24);
+		sc.setDuration(2000);
+		sc.addUpdateListener(new AnimatorUpdateListener() {
+			@Override
+			public void onAnimationUpdate(ValueAnimator animation) {
+				viewCircleOut.setScaleX(((int) animation.getAnimatedValue())
+						* 1.0f / (24 * dp10));
+				viewCircleOut.setScaleY(((int) animation.getAnimatedValue())
+						* 1.0f / (24 * dp10));
+			}
+		});
+		AnimationDrawable animationDrawable = (AnimationDrawable)imgState.getDrawable();
 		if (state == 0) {
-			((TextView) viewState).setText("未开启过滤");
+			textState.setText("未开启过滤");
 			ValueAnimator colorAnim = ObjectAnimator.ofInt(viewTop,
 					"backgroundColor", Color.parseColor("#00cd00"), Color.RED);
-			ValueAnimator sc = ObjectAnimator.ofInt(dp10*22,dp10*17);
-			sc.setDuration(2000);
-			sc.addUpdateListener(new AnimatorUpdateListener() {
-				@Override
-				public void onAnimationUpdate(ValueAnimator animation) {
-					viewCircleOut.setScaleX(((int)animation.getAnimatedValue())*1.0f/(22*dp10));
-					viewCircleOut.setScaleY(((int)animation.getAnimatedValue())*1.0f/(22*dp10));
-				}
-			});
 			colorAnim.setDuration(2000);
 			colorAnim.setEvaluator(new ArgbEvaluator());
 			colorAnim.start();
-			sc.start();
+			imgState.setVisibility(View.VISIBLE);
+			animationDrawable.stop();
+			animationDrawable.selectDrawable(0);
 		} else {
-			((TextView) viewState).setText("已开启过滤");
+			textState.setText("已开启过滤");
 			ValueAnimator colorAnim = ObjectAnimator.ofInt(viewTop,
 					"backgroundColor", Color.RED, Color.parseColor("#00cd00"));
-			ValueAnimator sc = ObjectAnimator.ofInt(dp10*17,dp10*22);
-			sc.setDuration(2000);
-			sc.addUpdateListener(new AnimatorUpdateListener() {
-				@Override
-				public void onAnimationUpdate(ValueAnimator animation) {
-					viewCircleOut.setScaleX(((int)animation.getAnimatedValue())*1.0f/(22*dp10));
-					viewCircleOut.setScaleY(((int)animation.getAnimatedValue())*1.0f/(22*dp10));
-				}
-			});
 			colorAnim.setDuration(2000);
 			colorAnim.setEvaluator(new ArgbEvaluator());
 			colorAnim.start();
-			sc.start();
+			animationDrawable.start();
+			imgState.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					imgState.setVisibility(View.INVISIBLE);
+				}
+			}, 600);
 		}
 		state = state ^ 1;
+		sc.start();
 		va.start();
 	}
 
 	private void onAboutClick() {
-		startActivity(new Intent(this, AboutActivity.class));
+		startActivity(new Intent(this, SoftDetailActivity.class));
 	}
 
 	private void onShareClick() {

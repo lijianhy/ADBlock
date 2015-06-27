@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:ignore="RtlSymmetry,HardcodedText,RtlHardcoded" >
 
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:background="#00cd00"
+        android:background="@drawable/bg_main"
         android:orientation="vertical"
         android:padding="10dp" >
 
@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp" >
 
+            <!--
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,6 +34,7 @@
                 android:text="ADBlock"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
+            -->
 
             <ImageView
                 android:id="@+id/amain_img_menu"
@@ -50,45 +52,42 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp" >
 
-            <View 
+            <View
                 android:id="@+id/amain_view_circle"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@drawable/oval_white_storken"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
                 android:layout_centerInParent="true"
-                />
-            
-            <View 
+                android:background="@drawable/oval_red" />
+
+            <View
                 android:id="@+id/amain_view_circleout"
-                android:layout_width="220dp"
-                android:layout_height="220dp"
-                android:background="@drawable/oval_white_storken"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
                 android:layout_centerInParent="true"
-                />
-            
-            <View 
+                android:background="@drawable/oval_green_out" />
+
+            <View
                 android:id="@+id/amian_view_center"
                 android:layout_width="1dp"
-                android:layout_height="1dp"
-                android:layout_centerInParent="true"
-                />
-            
+                android:layout_height="20dp"
+                android:layout_centerInParent="true" />
+
             <TextView
                 android:id="@+id/amain_text_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/amian_view_center"
+                android:layout_alignTop="@id/amian_view_center"
                 android:layout_centerHorizontal="true"
                 android:text="000625"
                 android:textColor="@color/white"
                 android:textSize="40sp" />
 
             <TextView
+                android:id="@+id/amain_text_counttop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/amian_view_center"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
                 android:text="已阻止骚扰次数"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -99,24 +98,42 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:background="@color/white"
         android:gravity="center_horizontal"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/amain_text_state"
+        <RelativeLayout
+            android:id="@+id/amain_view_state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="已开启过滤"
-            android:textColor="@color/textNormal"
-            android:textSize="16sp" />
-        
-        <View 
+            android:padding="15dp" >
+
+            <TextView
+                android:id="@+id/amain_text_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="已开启过滤"
+                android:textColor="@color/textNormal"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/amain_img_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:layout_alignBottom="@id/amain_text_state"
+                android:layout_toRightOf="@id/amain_text_state"
+                android:src="@anim/warning_break" />
+        </RelativeLayout>
+
+        <View
             android:layout_width="200dp"
             android:layout_height="1dp"
-            android:background="@color/diving"
-            />
+            android:background="@color/diving" />
+
         <TextView
             android:id="@+id/amain_text_about"
             android:layout_width="match_parent"
@@ -126,12 +143,12 @@
             android:text="关于我们"
             android:textColor="@color/textNormal"
             android:textSize="16sp" />
-        
-        <View 
+
+        <View
             android:layout_width="200dp"
             android:layout_height="1dp"
-            android:background="@color/diving"
-            />
+            android:background="@color/diving" />
+
         <TextView
             android:id="@+id/amain_text_share"
             android:layout_width="match_parent"
@@ -141,22 +158,19 @@
             android:text="我要分享"
             android:textColor="@color/textNormal"
             android:textSize="16sp" />
-        
-        <View 
+
+        <View
             android:layout_width="200dp"
             android:layout_height="1dp"
-            android:background="@color/diving"
-            />
-        
-        <TextView 
+            android:background="@color/diving" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="ADBlock广告过滤大师 版本：1.0.0.1000"
             android:textColor="@color/textNormal"
-            android:textSize="13sp"
-            />
-        
+            android:textSize="13sp" />
     </LinearLayout>
 
 </LinearLayout>
