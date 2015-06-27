@@ -30,7 +30,7 @@
             android:layout_marginTop="20dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="10dp" >
+            android:paddingLeft="10dp" >
 
             <TextView
                 android:layout_width="0dp"
@@ -51,6 +51,15 @@
                 android:singleLine="true"
                 android:textColor="@color/textGray"
                 android:textSize="@dimen/text_normal" />
+
+            <com.ad.block.widgets.CheckSwitchButton
+                android:id="@+id/as_switchbutton_notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:enabled="true"
+                android:layout_marginRight="10dp" />
+            
         </LinearLayout>
 
         <View
@@ -66,7 +75,7 @@
             android:layout_marginTop="20dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="10dp" >
+            android:paddingLeft="10dp" >
 
             <TextView
                 android:layout_width="0dp"
@@ -87,6 +96,15 @@
                 android:singleLine="true"
                 android:textColor="@color/textGray"
                 android:textSize="@dimen/text_normal" />
+            
+            <com.ad.block.widgets.CheckSwitchButton
+                android:id="@+id/as_switchbutton_desktop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:enabled="true"
+                android:layout_marginRight="10dp" />
+            
         </LinearLayout>
 
         <View
@@ -103,7 +121,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="10dp" >
+        android:paddingLeft="10dp" >
 
         <TextView
             android:layout_width="0dp"
@@ -124,6 +142,15 @@
             android:singleLine="true"
             android:textColor="@color/textGray"
             android:textSize="@dimen/text_normal" />
+        
+        <com.ad.block.widgets.CheckSwitchButton
+                android:id="@+id/as_switchbutton_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:enabled="true"
+                android:layout_marginRight="10dp" />
+        
     </LinearLayout>
 
     <View
