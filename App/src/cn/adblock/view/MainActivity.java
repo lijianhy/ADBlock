@@ -1,12 +1,10 @@
 package cn.adblock.view;
 
-import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +12,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cn.adblock.R;
+import cn.adblock.app.Constans;
+import cn.adblock.utils.SharedPreferencesUtils;
 import cn.adblock.widgets.ShareDialog;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
@@ -24,12 +24,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private View viewAbout;
 	private View viewShare;
 	private View viewCircleOut;
+	private View viewCircle;
 	private ImageView imgState;
 	private TextView textState;
 	private TextView textCount;
 
 	// 0开启 1关闭
-	private int state;
+	private int state = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		viewState = findViewById(R.id.amain_view_state);
 		viewAbout = findViewById(R.id.amain_text_about);
 		viewShare = findViewById(R.id.amain_text_share);
+		viewCircle = findViewById(R.id.amain_view_circle);
 		viewCircleOut = findViewById(R.id.amain_view_circleout);
 		textState = (TextView) findViewById(R.id.amain_text_state);
 		textCount = (TextView) findViewById(R.id.amain_text_count);
@@ -48,7 +50,11 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		viewState.setOnClickListener(this);
 		viewAbout.setOnClickListener(this);
 		viewShare.setOnClickListener(this);
-		((AnimationDrawable) imgState.getDrawable()).selectDrawable(0);
+		AnimationDrawable drawable = (AnimationDrawable) imgState.getDrawable();
+		drawable.stop();
+		drawable.selectDrawable(0);
+		setState((Boolean) SharedPreferencesUtils.getParam(this,
+				Constans.KEY_IS_OPEN, false));
 	}
 
 	@Override
@@ -90,42 +96,43 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		sc.addUpdateListener(new AnimatorUpdateListener() {
 			@Override
 			public void onAnimationUpdate(ValueAnimator animation) {
-				viewCircleOut.setScaleX(((int) animation.getAnimatedValue())
-						* 1.0f / (24 * dp10));
-				viewCircleOut.setScaleY(((int) animation.getAnimatedValue())
-						* 1.0f / (24 * dp10));
+				int animatedValue = (int) animation.getAnimatedValue();
+				viewCircleOut.setScaleX(animatedValue * 1.0f / (24 * dp10));
+				viewCircleOut.setScaleY(animatedValue * 1.0f / (24 * dp10));
 			}
 		});
 		AnimationDrawable animationDrawable = (AnimationDrawable) imgState
 				.getDrawable();
 		if (state == 0) {
-			textState.setText("未开启过滤");
-			ValueAnimator colorAnim = ObjectAnimator.ofInt(viewTop,
-					"backgroundColor", Color.parseColor("#00cd00"), Color.RED);
-			colorAnim.setDuration(2000);
-			colorAnim.setEvaluator(new ArgbEvaluator());
-			colorAnim.start();
-			imgState.setVisibility(View.VISIBLE);
+			setState(false);
 			animationDrawable.stop();
 			animationDrawable.selectDrawable(0);
 		} else {
-			textState.setText("已开启过滤");
-			ValueAnimator colorAnim = ObjectAnimator.ofInt(viewTop,
-					"backgroundColor", Color.RED, Color.parseColor("#00cd00"));
-			colorAnim.setDuration(2000);
-			colorAnim.setEvaluator(new ArgbEvaluator());
-			colorAnim.start();
+			setState(true);
 			animationDrawable.start();
+		}
+		sc.start();
+		va.start();
+	}
+
+	private void setState(boolean b) {
+		state = b ? 0 : 1;
+		SharedPreferencesUtils.setParam(this, Constans.KEY_IS_OPEN, b);
+		textState.setText("已开启过滤");
+		viewTop.setBackgroundResource(b ? R.drawable.bg_main_green
+				: R.drawable.bg_main);
+		viewCircle.setBackgroundResource(b ? R.drawable.oval_green
+				: R.drawable.oval_red);
+		textState.setText(b ? "已开启过滤" : "未开启过滤");
+		if (b) {
 			imgState.postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					imgState.setVisibility(View.INVISIBLE);
 				}
 			}, 600);
-		}
-		state = state ^ 1;
-		sc.start();
-		va.start();
+		} else
+			imgState.setVisibility(View.VISIBLE);
 	}
 
 	private void onAboutClick() {

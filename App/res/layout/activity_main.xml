@@ -6,20 +6,31 @@
     android:orientation="vertical"
     tools:ignore="RtlSymmetry,HardcodedText,RtlHardcoded" >
 
-    <LinearLayout
-        android:id="@+id/amain_view_top"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:background="@drawable/bg_main"
-        android:orientation="vertical"
-        android:padding="10dp" >
+        android:layout_weight="3.5"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white" />
+
+        <View
+            android:id="@+id/amain_view_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_main" />
 
         <RelativeLayout
+            android:id="@+id/amain_view_title"
             android:layout_width="match_parent"
-            android:layout_height="50dp" >
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" >
 
-            <!--
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,7 +45,6 @@
                 android:text="ADBlock"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
-            -->
 
             <ImageView
                 android:id="@+id/amain_img_menu"
@@ -50,6 +60,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/amain_view_title"
             android:layout_marginBottom="20dp" >
 
             <View
@@ -92,13 +103,13 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </RelativeLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:background="@color/white"
+        android:background="@drawable/corner_bottom_white"
         android:gravity="center_horizontal"
         android:orientation="vertical" >
 
@@ -114,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="已开启过滤"
+                android:text="未开启过滤"
                 android:textColor="@color/textNormal"
                 android:textSize="16sp" />
 
@@ -122,10 +133,10 @@
                 android:id="@+id/amain_img_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/app_name"
                 android:layout_alignBottom="@id/amain_text_state"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/amain_text_state"
+                android:contentDescription="@string/app_name"
                 android:src="@anim/warning_break" />
         </RelativeLayout>
 
