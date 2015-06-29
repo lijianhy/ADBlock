@@ -19,8 +19,6 @@
         <TextView
             style="@style/TitleLeft"
             android:text="软件详情" />
-
-        <include layout="@layout/view_title_next" />
     </RelativeLayout>
 
     <RelativeLayout
