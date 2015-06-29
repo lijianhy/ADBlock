@@ -2,6 +2,7 @@ package cn.adblock.view;
 
 import cn.adblock.R;
 import cn.adblock.R.layout;
+import cn.adblock.utils.ToastUtil;
 import cn.adblock.widgets.ConfirmDialog;
 import cn.adblock.widgets.ShareDialog;
 import cn.adblock.widgets.ConfirmDialog.ConfirmListener;
@@ -146,22 +147,13 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 
 	@Override
 	public void onConfirmClick() {
-		//获取LayoutInflater对象，该对象能把XML文件转换为与之一直的View对象 
-		LayoutInflater inflater = getLayoutInflater(); 
-		//根据指定的布局文件创建一个具有层级关系的View对象 
-		//第二个参数为View对象的根节点，即LinearLayout的ID 
-		View layout = inflater.inflate(R.layout.view_toast, (ViewGroup) findViewById(R.id.view_toast_root));
-		//查找ImageView控件 
-		//注意是在layout中查找 
-		TextView text = (TextView) layout.findViewById(R.id.text); 
-		text.setText("已经是最新版本....."); 
-		Toast toast = new Toast(getApplicationContext()); 
-		//设置Toast显示位置(起点位置,水平向右位移,垂直向下位移) 
-//		toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 1150); 
-		toast.setDuration(Toast.LENGTH_SHORT); 
-		//让Toast显示为我们自定义的样子 
-		toast.setView(layout); 
-		toast.show(); 
+		ToastUtil.show(this, "已经是最新版本....");
+	}
+	
+	@Override
+	public void onPause() {
+		super.onPause();
+		ToastUtil.cancel();
 	}
 	
 }
