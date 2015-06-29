@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -147,6 +148,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	public static int dip2px(Context context, float dpValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
 		return (int) (dpValue * scale + 0.5f);
+	}
+
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			moveTaskToBack(false);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 
 }

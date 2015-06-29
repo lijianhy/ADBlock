@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -91,11 +92,23 @@ public class CheckSwitchButton extends CheckBox {
 		mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
 
 		// get Bitmap
-		mBottom = BitmapFactory.decodeResource(resources, R.drawable.checkswitch_bottom);
-		mBtnPressed = BitmapFactory.decodeResource(resources,R.drawable.checkswitch_btn_pressed);
-		mBtnNormal = BitmapFactory.decodeResource(resources,R.drawable.checkswitch_btn_unpressed);
-		mFrame = BitmapFactory.decodeResource(resources, R.drawable.checkswitch_frame);
-		mMask = BitmapFactory.decodeResource(resources, R.drawable.checkswitch_mask);
+		mBottom = BitmapFactory.decodeResource(resources,
+				R.drawable.checkswitch_bottom);
+		mBtnPressed = BitmapFactory.decodeResource(resources,
+				R.drawable.checkswitch_btn_pressed);
+		mBtnNormal = BitmapFactory.decodeResource(resources,
+				R.drawable.checkswitch_btn_unpressed);
+		mFrame = BitmapFactory.decodeResource(resources,
+				R.drawable.checkswitch_frame);
+		mMask = BitmapFactory.decodeResource(resources,
+				R.drawable.checkswitch_mask);
+		// scale btn
+//		Matrix matrix = new Matrix();
+//		matrix.postScale(0.5f, 0.5f); // 长和宽放大缩小的比例
+//		mBtnPressed = Bitmap.createBitmap(mBtnPressed, 0, 0,
+//				mBtnPressed.getWidth(), mBtnPressed.getHeight(), matrix, true);
+//		mBtnNormal = Bitmap.createBitmap(mBtnNormal, 0, 0,
+//				mBtnNormal.getWidth(), mBtnNormal.getHeight(), matrix, true);
 		mCurBtnPic = mBtnNormal;
 
 		mBtnWidth = mBtnPressed.getWidth();
@@ -155,16 +168,18 @@ public class CheckSwitchButton extends CheckBox {
 
 			mBroadcasting = true;
 			if (mOnCheckedChangeListener != null) {
-				mOnCheckedChangeListener.onCheckedChanged(CheckSwitchButton.this,mChecked);
+				mOnCheckedChangeListener.onCheckedChanged(
+						CheckSwitchButton.this, mChecked);
 			}
 			if (mOnCheckedChangeWidgetListener != null) {
-				mOnCheckedChangeWidgetListener.onCheckedChanged(CheckSwitchButton.this, mChecked);
+				mOnCheckedChangeWidgetListener.onCheckedChanged(
+						CheckSwitchButton.this, mChecked);
 			}
 
 			mBroadcasting = false;
 		}
 	}
-	
+
 	public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
 		mOnCheckedChangeListener = listener;
 	}
@@ -293,7 +308,8 @@ public class CheckSwitchButton extends CheckBox {
 	}
 
 	private void doAnimation() {
-		mAnimationPosition += mAnimatedVelocity * FrameAnimationController.ANIMATION_FRAME_DURATION / 1000;
+		mAnimationPosition += mAnimatedVelocity
+				* FrameAnimationController.ANIMATION_FRAME_DURATION / 1000;
 		if (mAnimationPosition <= mBtnOnPos) {
 			stopAnimation();
 			mAnimationPosition = mBtnOnPos;
