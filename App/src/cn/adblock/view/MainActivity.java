@@ -1,5 +1,6 @@
 package cn.adblock.view;
 
+import android.R.integer;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
@@ -96,7 +97,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		sc.addUpdateListener(new AnimatorUpdateListener() {
 			@Override
 			public void onAnimationUpdate(ValueAnimator animation) {
-				int animatedValue = (int) animation.getAnimatedValue();
+				int animatedValue = (Integer) animation.getAnimatedValue();
 				viewCircleOut.setScaleX(animatedValue * 1.0f / (24 * dp10));
 				viewCircleOut.setScaleY(animatedValue * 1.0f / (24 * dp10));
 			}

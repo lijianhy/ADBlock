@@ -9,7 +9,6 @@
     tools:ignore="RtlSymmetry,HardcodedText,RtlHardcoded,ContentDescription" >
 
     <RelativeLayout
-        android:id="@+id/about_view_back"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="@color/background" >
@@ -17,10 +16,39 @@
         <include layout="@layout/view_title_lback" />
 
         <TextView
+            android:id="@+id/about_view_back"
             style="@style/TitleLeft"
             android:text="软件详情" />
 
-        <include layout="@layout/view_title_next" />
+        <RelativeLayout
+            android:id="@+id/asd_view_upload"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true" >
+
+            <ImageView
+                android:id="@+id/asd_img_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/icon_download"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/asd_text_upload"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/icon_download_num"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="8sp" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout
