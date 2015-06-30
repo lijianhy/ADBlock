@@ -1,22 +1,19 @@
 package cn.adblock.view;
 
-import cn.adblock.R;
-import cn.adblock.R.layout;
-import cn.adblock.widgets.CheckSwitchButton;
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.RadioButton;
+import cn.adblock.R;
+import cn.adblock.widgets.CheckSwitchButton;
+
+import com.zcw.togglebutton.ToggleButton;
 
 public class SettingActivity extends BaseActivity implements OnClickListener {
 	
 	private View viewBack;
-	private CheckSwitchButton csbNotice;
-	private CheckSwitchButton csbDesktop;
-	private CheckSwitchButton csbStart;
+	private ToggleButton csbNotice;
+	private ToggleButton csbDesktop;
+	private ToggleButton csbStart;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +21,16 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.activity_setting);
 		initView();
 		setListener();
+		csbNotice.toggle();
+		csbDesktop.toggle();
+		csbStart.toggle();
 	}
 	
 	private void initView(){
 		viewBack = (View) findViewById(R.id.about_view_back);
-		csbNotice = (CheckSwitchButton) findViewById(R.id.as_switchbutton_notice);
-		csbDesktop = (CheckSwitchButton) findViewById(R.id.as_switchbutton_desktop);
-		csbStart = (CheckSwitchButton) findViewById(R.id.as_switchbutton_start);
+		csbNotice = (ToggleButton) findViewById(R.id.as_switchbutton_notice);
+		csbDesktop = (ToggleButton) findViewById(R.id.as_switchbutton_desktop);
+		csbStart = (ToggleButton) findViewById(R.id.as_switchbutton_start);
 	}
 	
 	private void setListener(){
@@ -49,10 +49,6 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 			finish();
 			break;
 		}
-	}
-	
-	public void checkStatus(){
-		csbDesktop.setChecked(csbDesktop.isChecked());
 	}
 	
 }

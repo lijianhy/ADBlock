@@ -27,6 +27,11 @@
         <item name="android:textSize">@dimen/text_big</item>
     </style>
 
+    <style name="popwindow_anim_top">
+        <item name="android:windowEnterAnimation">@anim/anim_top2bottom_enter</item>
+        <item name="android:windowExitAnimation">@anim/anim_bottom2top_exit</item>
+    </style>
+
     <style name="TitleLeft" parent="WrapContent">
         <item name="android:layout_centerInParent">true</item>
         <item name="android:layout_alignParentLeft">true</item>

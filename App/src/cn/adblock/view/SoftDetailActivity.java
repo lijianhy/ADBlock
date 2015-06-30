@@ -11,11 +11,13 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import cn.adblock.R;
 import cn.adblock.widgets.ExpandableTextView;
+import cn.adblock.widgets.SaftPopWindow;
 
 public class SoftDetailActivity extends BaseActivity implements OnClickListener {
 
 	private TextView textSize;
 	private View viewBack;
+	private View viewSaft;
 	private ExpandableTextView expand;
 
 	@Override
@@ -40,15 +42,17 @@ public class SoftDetailActivity extends BaseActivity implements OnClickListener 
 	public void onBack(View v) {
 		this.finish();
 	}
-	
-	private void initView(){
+
+	private void initView() {
 		textSize = (TextView) findViewById(R.id.asd_text_size);
 		expand = (ExpandableTextView) findViewById(R.id.asd_expand);
 		viewBack = (View) findViewById(R.id.about_view_back);
+		viewSaft = (View) findViewById(R.id.asd_view_saft);
 	}
-	
-	private void setListener(){
+
+	private void setListener() {
 		viewBack.setOnClickListener(this);
+		viewSaft.setOnClickListener(this);
 	}
 
 	@Override
@@ -58,7 +62,16 @@ public class SoftDetailActivity extends BaseActivity implements OnClickListener 
 		case R.id.about_view_back:
 			finish();
 			break;
+		case R.id.asd_view_saft:
+			onSaftClick();
+			break;
 		}
+	}
+
+	private void onSaftClick() {
+		int[] location = new int[2]; 
+		viewSaft.getLocationInWindow(location);
+		new SaftPopWindow(this).showPopupWindow(viewSaft);
 	}
 
 }
