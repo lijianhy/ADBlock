@@ -38,7 +38,7 @@
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/text_title</item>
-        <item name="android:textSize">@dimen/text_big</item>
+        <item name="android:textSize">@dimen/text_normal</item>
     </style>
 
     <style name="Dialog_Notitle">
