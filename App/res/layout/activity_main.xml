@@ -65,15 +65,15 @@
 
             <View
                 android:id="@+id/amain_view_circle"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/oval_red" />
 
             <View
                 android:id="@+id/amain_view_circleout"
-                android:layout_width="240dp"
-                android:layout_height="240dp"
+                android:layout_width="260dp"
+                android:layout_height="260dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/oval_green_out" />
 

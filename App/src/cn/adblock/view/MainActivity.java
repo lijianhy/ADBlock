@@ -93,14 +93,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			}
 		});
 		ValueAnimator sc = ObjectAnimator
-				.ofInt(dp10 * 24, dp10 * 19, dp10 * 24);
+				.ofInt(dp10 * 26, dp10 * 22, dp10 * 26);
 		sc.setDuration(2000);
 		sc.addUpdateListener(new AnimatorUpdateListener() {
 			@Override
 			public void onAnimationUpdate(ValueAnimator animation) {
 				int animatedValue = (Integer) animation.getAnimatedValue();
-				viewCircleOut.setScaleX(animatedValue * 1.0f / (24 * dp10));
-				viewCircleOut.setScaleY(animatedValue * 1.0f / (24 * dp10));
+				viewCircleOut.setScaleX(animatedValue * 1.0f / (26 * dp10));
+				viewCircleOut.setScaleY(animatedValue * 1.0f / (26 * dp10));
 			}
 		});
 		AnimationDrawable animationDrawable = (AnimationDrawable) imgState
