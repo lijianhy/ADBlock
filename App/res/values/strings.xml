@@ -10,6 +10,6 @@
     <string name="title_activity_setting">SettingActivity</string>
     <string name="title_activity_feed_back">FeedBackActivity</string>
     <string name="title_activity_soft_detail">SoftDetailActivity</string>
-    <string name="soft_detail">“ADBlock广告过滤大师是一款用来解决用户在使用电脑过程中受到广告困扰的软件（去广告软件）。安装简单，启动程序即可自动过滤广告，真正做到人人会用。它能过滤包括网页，视频，游戏，软件等各种形式的广告。是您可靠的广告管家，可靠的免广告保护伞！”</string>
+    <string name="soft_detail">ADBlock广告过滤大师是一款用来解决用户在使用电脑过程中受到广告困扰的软件（去广告软件）。安装简单，启动程序即可自动过滤广告，真正做到人人会用。它能过滤包括网页，视频，游戏，软件等各种形式的广告。是您可靠的广告管家，可靠的免广告保护伞！</string>
 
 </resources>

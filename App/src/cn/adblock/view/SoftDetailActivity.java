@@ -3,6 +3,7 @@ package cn.adblock.view;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
@@ -36,7 +37,11 @@ public class SoftDetailActivity extends BaseActivity implements OnClickListener 
 		ss.setSpan(new ForegroundColorSpan(Color.parseColor("#FF7F50")),
 				length, ss.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
 		textSize.setText(ss);
-		expand.setText(getString(R.string.soft_detail));
+		SpannableStringBuilder ssb = new SpannableStringBuilder("缩进");
+		ssb.setSpan(new ForegroundColorSpan(Color.TRANSPARENT), 0,
+				ssb.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+		ssb.append(getString(R.string.soft_detail));
+		expand.setText(ssb);
 	}
 
 	public void onBack(View v) {
@@ -69,7 +74,7 @@ public class SoftDetailActivity extends BaseActivity implements OnClickListener 
 	}
 
 	private void onSaftClick() {
-		int[] location = new int[2]; 
+		int[] location = new int[2];
 		viewSaft.getLocationInWindow(location);
 		new SaftPopWindow(this).showPopupWindow(viewSaft);
 	}
