@@ -93,7 +93,7 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 	}
 	
 	private void onLogoutClick() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
 		builder.setTitle("你确定要离开吗？");
 		builder.setPositiveButton("确定",
 				new DialogInterface.OnClickListener() {
