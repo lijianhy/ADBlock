@@ -41,10 +41,10 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:text="常驻通知栏"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_title"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -60,10 +60,10 @@
 
                 <com.zcw.togglebutton.ToggleButton
                     android:id="@+id/as_switchbutton_notice"
-                    android:layout_width="70dp"
+                    android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="20dp"
                     toggle:offColor="@color/white"
                     toggle:onColor="#0f0"
                     toggle:spotColor="#fff" />
@@ -72,8 +72,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
                 android:background="@color/bg_line" />
 
             <LinearLayout
@@ -85,10 +85,10 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:text="显示桌面悬浮窗"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_title"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -104,10 +104,10 @@
 
                 <com.zcw.togglebutton.ToggleButton
                     android:id="@+id/as_switchbutton_desktop"
-                    android:layout_width="70dp"
+                    android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="20dp"
                     toggle:offColor="@color/white"
                     toggle:onColor="#0f0"
                     toggle:spotColor="#fff" />
@@ -116,8 +116,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
                 android:background="@color/bg_line" />
         </LinearLayout>
 
@@ -130,10 +130,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:text="开机自启动"
-                android:textColor="@color/black"
+                android:textColor="@color/text_title"
                 android:textSize="@dimen/text_normal" />
 
             <TextView
@@ -149,10 +149,10 @@
 
             <com.zcw.togglebutton.ToggleButton
                 android:id="@+id/as_switchbutton_start"
-                android:layout_width="70dp"
+                android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="20dp"
                 toggle:offColor="@color/white"
                 toggle:onColor="#0f0"
                 toggle:spotColor="#fff" />
@@ -161,8 +161,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
             android:background="@color/bg_line" />
     </LinearLayout>
 

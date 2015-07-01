@@ -32,19 +32,19 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="10dp" >
+                android:orientation="horizontal" >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawablePadding="5dp"
+                    android:layout_marginLeft="20dp"
                     android:text="VPN模式"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_title"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -65,31 +65,32 @@
                     android:layout_gravity="center|right"
                     android:background="@drawable/bg_radiobutton"
                     android:button="@null"
+                    android:layout_marginRight="20dp"
                     android:checked="true" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
                 android:background="@color/bg_line" />
             
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="10dp" >
+                android:orientation="horizontal" >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawablePadding="5dp"
+                    android:layout_marginLeft="20dp"
                     android:text="ROOT模式"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_title"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -108,6 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|right"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/bg_radiobutton"
                     android:button="@null" />
             </LinearLayout>
@@ -115,8 +117,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
                 android:background="@color/bg_line" />
             
     </LinearLayout>
@@ -126,8 +128,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:text="1.VPN模式支持全网过滤，不需要ROOT，但是无法与其他VPN或部分热点同时使用。"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:textColor="@color/text_title"
         android:layout_marginTop="40dp"/>
     
     <TextView 
@@ -135,8 +138,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:text="2.ROOT模式可以帮助您在使用其他VPN的同时，也可以使用ADSafe相关功能（此选项需要您的手机开启ROOT权限）。"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:textColor="@color/text_title"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
         android:layout_marginTop="20dp"/>
 
 </LinearLayout>
