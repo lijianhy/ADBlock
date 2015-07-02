@@ -24,13 +24,13 @@ public class StartActivity extends BaseActivity {
 			public void run() {
 				boolean isFirst = (Boolean) SharedPreferencesUtils.getParam(
 						StartActivity.this, Constans.KEY_IS_FIRST, true);
-//				if (isFirst) {
+				if (isFirst) {
 					startActivity(new Intent(StartActivity.this,
 							GuiActivity.class));
-//				} else
-//					startActivity(new Intent(StartActivity.this,
-//							MainActivity.class));
-//				finish();
+				} else
+					startActivity(new Intent(StartActivity.this,
+							MainActivity.class));
+				finish();
 			}
 		}, 2000);
 	}
