@@ -42,7 +42,7 @@
         android:background="@color/trans"
         android:padding="10dp"
         android:text="关闭"
-        android:textColor="@color/textNormal"
+        android:textColor="@color/text_main"
         android:textSize="@dimen/text_normal" />
 
 </LinearLayout>

@@ -290,7 +290,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/textNormal"
+                    android:textColor="@color/text_main"
                     android:textSize="@dimen/text_l" />
 
                 <ImageButton
@@ -322,7 +322,7 @@
                 android:drawableLeft="@drawable/dot_left"
                 android:drawablePadding="10dp"
                 android:text="支持过滤几乎所有网站常见样式广告"
-                android:textColor="@color/textNormal"
+                android:textColor="@color/text_main"
                 android:textSize="@dimen/text_l" />
 
             <TextView
@@ -332,7 +332,7 @@
                 android:drawableLeft="@drawable/dot_left"
                 android:drawablePadding="10dp"
                 android:text="支持所有浏览器软件，包括IE11"
-                android:textColor="@color/textNormal"
+                android:textColor="@color/text_main"
                 android:textSize="@dimen/text_l" />
 
             <TextView
@@ -342,7 +342,7 @@
                 android:drawableLeft="@drawable/dot_left"
                 android:drawablePadding="10dp"
                 android:text="支持特定视频网站广告过滤，包括优酷、奇异、PPS、腾讯视频、土豆、酷6、风行、PPTV等主流视频网站"
-                android:textColor="@color/textNormal"
+                android:textColor="@color/text_main"
                 android:textSize="@dimen/text_l" />
             
             <TextView
@@ -352,7 +352,7 @@
                 android:drawableLeft="@drawable/dot_left"
                 android:drawablePadding="10dp"
                 android:text="使用方便，占用系统资源少"
-                android:textColor="@color/textNormal"
+                android:textColor="@color/text_main"
                 android:textSize="@dimen/text_l" />
             
         </LinearLayout>

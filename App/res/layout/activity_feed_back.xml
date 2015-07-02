@@ -22,7 +22,7 @@
         <include layout="@layout/view_title_lback" />
 
         <TextView
-            style="@style/TitleText"
+            style="@style/TitleFeedBack"
             android:text="意见反馈" />
     </RelativeLayout>
 

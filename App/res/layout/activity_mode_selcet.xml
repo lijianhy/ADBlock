@@ -44,7 +44,7 @@
                     android:drawablePadding="5dp"
                     android:layout_marginLeft="20dp"
                     android:text="VPN模式"
-                    android:textColor="@color/text_title"
+                    android:textColor="@color/text_main"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -89,7 +89,7 @@
                     android:drawablePadding="5dp"
                     android:layout_marginLeft="20dp"
                     android:text="ROOT模式"
-                    android:textColor="@color/text_title"
+                    android:textColor="@color/text_main"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -129,7 +129,7 @@
         android:text="1.VPN模式支持全网过滤，不需要ROOT，但是无法与其他VPN或部分热点同时使用。"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
-        android:textColor="@color/text_title"
+        android:textColor="@color/text_main"
         android:layout_marginTop="40dp"/>
     
     <TextView 
@@ -137,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:text="2.ROOT模式可以帮助您在使用其他VPN的同时，也可以使用ADSafe相关功能（此选项需要您的手机开启ROOT权限）。"
-        android:textColor="@color/text_title"
+        android:textColor="@color/text_main"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
         android:layout_marginTop="20dp"/>
