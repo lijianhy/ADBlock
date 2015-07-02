@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import cn.adblock.R;
@@ -98,7 +99,7 @@ public class MenuActivity extends BaseActivity implements OnClickListener,
 					Animation.RELATIVE_TO_PARENT, 0.0f,  
 					Animation.RELATIVE_TO_PARENT, 0.0f);  
 			inFromRight.setDuration(300);  
-//			inFromRight.setInterpolator(new AnticipateOvershootInterpolator());  
+			inFromRight.setInterpolator(new DecelerateInterpolator());  
 			inFromRight.setAnimationListener(new SelfAnimationListener(views[msg.what]));
 			views[msg.what].startAnimation(inFromRight);
 		}
