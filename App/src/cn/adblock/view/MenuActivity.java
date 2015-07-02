@@ -1,29 +1,26 @@
 package cn.adblock.view;
 
-import cn.adblock.R;
-import cn.adblock.R.layout;
-import cn.adblock.utils.ToastUtil;
-import cn.adblock.widgets.ConfirmDialog;
-import cn.adblock.widgets.ShareDialog;
-import cn.adblock.widgets.ConfirmDialog.ConfirmListener;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import cn.adblock.R;
+import cn.adblock.utils.ToastUtil;
+import cn.adblock.widgets.ConfirmDialog;
+import cn.adblock.widgets.ConfirmDialog.ConfirmListener;
 
-public class MenuActivity extends BaseActivity implements OnClickListener,ConfirmListener {
-	
+public class MenuActivity extends BaseActivity implements OnClickListener,
+		ConfirmListener {
+
 	private View viewSetting;
 	private View viewMode;
 	private View ViewSuggest;
@@ -31,8 +28,10 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 	private View viewFeedback;
 	private View viewCheckupdate;
 	private Button btnLogout;
-	
-	ConfirmDialog dialog ;
+
+	ConfirmDialog dialog;
+	int position = 0;
+	View[] views = new View[6];
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +40,10 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 		dialog = new ConfirmDialog(this);
 		initView();
 		setListener();
+		startAnims();
 	}
-	
-	private void initView(){
+
+	private void initView() {
 		viewAbout = (View) findViewById(R.id.amenu_view_about);
 		viewSetting = (View) findViewById(R.id.amenu_view_setting);
 		viewMode = (View) findViewById(R.id.amenu_view_mode);
@@ -51,9 +51,18 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 		viewFeedback = (View) findViewById(R.id.amenu_view_feedback);
 		viewCheckupdate = (View) findViewById(R.id.amenu_view_checkupdate);
 		btnLogout = (Button) findViewById(R.id.amenu_btn_logout);
+		views[0] = viewSetting;
+		views[1] = viewMode;
+		views[2] = ViewSuggest;
+		views[3] = viewAbout;
+		views[4] = viewFeedback;
+		views[5] = viewCheckupdate;
+		for (View v : views) {
+			v.setVisibility(View.INVISIBLE);
+		}
 	}
-	
-	private void setListener(){
+
+	private void setListener() {
 		viewAbout.setOnClickListener(this);
 		viewCheckupdate.setOnClickListener(this);
 		viewSetting.setOnClickListener(this);
@@ -63,6 +72,37 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 		btnLogout.setOnClickListener(this);
 		dialog.setConfirmListener(this);
 	}
+
+	private void startAnims() {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				while (position < 6) {
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					handler.sendEmptyMessage(position);
+					position++;
+				}
+			}
+		}).start();
+	}
+
+	Handler handler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			Animation inFromRight = new TranslateAnimation(  
+					Animation.RELATIVE_TO_PARENT, ((msg.what+1)/6.0f)*0.5f,  
+					Animation.RELATIVE_TO_PARENT, 0.0f,  
+					Animation.RELATIVE_TO_PARENT, 0.0f,  
+					Animation.RELATIVE_TO_PARENT, 0.0f);  
+			inFromRight.setDuration(300);  
+//			inFromRight.setInterpolator(new AnticipateOvershootInterpolator());  
+			inFromRight.setAnimationListener(new SelfAnimationListener(views[msg.what]));
+			views[msg.what].startAnimation(inFromRight);
+		}
+	};
 
 	@Override
 	public void onClick(View v) {
@@ -91,29 +131,25 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 			break;
 		}
 	}
-	
+
 	private void onLogoutClick() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
 		builder.setTitle("你确定要离开吗？");
-		builder.setPositiveButton("确定",
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,
-							int whichButton) {
-						Intent intent = new Intent(Intent.ACTION_MAIN);  
-                        intent.addCategory(Intent.CATEGORY_HOME);  
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
-                        startActivity(intent);  
-                        android.os.Process.killProcess(android.os.Process.myPid());
-						dialog.dismiss();
-					}
-				});
-		builder.setNegativeButton("取消",
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,
-							int whichButton) {
-						dialog.dismiss();
-					}
-				});
+		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				Intent intent = new Intent(Intent.ACTION_MAIN);
+				intent.addCategory(Intent.CATEGORY_HOME);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+				android.os.Process.killProcess(android.os.Process.myPid());
+				dialog.dismiss();
+			}
+		});
+		builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				dialog.dismiss();
+			}
+		});
 		builder.create().show();
 	}
 
@@ -126,34 +162,51 @@ public class MenuActivity extends BaseActivity implements OnClickListener,Confir
 	}
 
 	private void onFeedbackClick() {
-		startActivity(new Intent(MenuActivity.this,FeedBackActivity.class));
+		startActivity(new Intent(MenuActivity.this, FeedBackActivity.class));
 	}
 
 	private void onSuggestClick() {
-		startActivity(new Intent(MenuActivity.this,SoftDetailActivity.class));
+		startActivity(new Intent(MenuActivity.this, SoftDetailActivity.class));
 	}
 
 	private void onModeClick() {
-		startActivity(new Intent(MenuActivity.this,ModeSelcetActivity.class));
+		startActivity(new Intent(MenuActivity.this, ModeSelcetActivity.class));
 	}
 
 	private void onSettingClick() {
-		startActivity(new Intent(MenuActivity.this,SettingActivity.class));
+		startActivity(new Intent(MenuActivity.this, SettingActivity.class));
 	}
 
 	private void onAboutClick() {
-		startActivity(new Intent(MenuActivity.this,AboutActivity.class));
+		startActivity(new Intent(MenuActivity.this, AboutActivity.class));
 	}
 
 	@Override
 	public void onConfirmClick() {
 		ToastUtil.show(this, "已经是最新版本....");
 	}
-	
+
 	@Override
 	public void onPause() {
 		super.onPause();
 		ToastUtil.cancel();
 	}
 	
+	class SelfAnimationListener implements AnimationListener {
+		View view;
+		public SelfAnimationListener(View view) {
+			this.view = view;
+		}
+		@Override
+		public void onAnimationStart(Animation animation) {
+		}
+		@Override
+		public void onAnimationRepeat(Animation animation) {
+		}
+		@Override
+		public void onAnimationEnd(Animation animation) {
+			view.setVisibility(View.VISIBLE);
+		}
+	}
+
 }

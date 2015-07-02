@@ -3,7 +3,6 @@ package cn.adblock.view;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;

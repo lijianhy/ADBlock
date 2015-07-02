@@ -1,6 +1,5 @@
 package cn.adblock.view;
 
-import android.R.integer;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
@@ -52,6 +51,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		viewState.setOnClickListener(this);
 		viewAbout.setOnClickListener(this);
 		viewShare.setOnClickListener(this);
+		viewCircle.setOnClickListener(this);
 		AnimationDrawable drawable = (AnimationDrawable) imgState.getDrawable();
 		drawable.stop();
 		drawable.selectDrawable(0);
@@ -66,6 +66,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			onMenuClick();
 			break;
 		case R.id.amain_view_state:
+		case R.id.amain_view_circle:
 			onStateClick();
 			break;
 		case R.id.amain_text_about:
@@ -93,7 +94,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			}
 		});
 		ValueAnimator sc = ObjectAnimator
-				.ofInt(dp10 * 26, dp10 * 22, dp10 * 26);
+				.ofInt(dp10 * 26, dp10 * 20, dp10 * 26);
 		sc.setDuration(2000);
 		sc.addUpdateListener(new AnimatorUpdateListener() {
 			@Override

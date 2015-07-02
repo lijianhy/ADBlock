@@ -12,7 +12,7 @@
         android:columnWidth="100dp"
         android:padding="10dp"
         android:numColumns="3"
-        android:listSelector="@null"
+        android:listSelector="@drawable/selector_btn_bottom"
         android:cacheColorHint="@color/trans"
         />
 
