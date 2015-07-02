@@ -1,6 +1,5 @@
 package cn.adblock.view;
 
-import android.R.integer;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
@@ -52,6 +51,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		viewState.setOnClickListener(this);
 		viewAbout.setOnClickListener(this);
 		viewShare.setOnClickListener(this);
+		viewCircle.setOnClickListener(this);
 		AnimationDrawable drawable = (AnimationDrawable) imgState.getDrawable();
 		drawable.stop();
 		drawable.selectDrawable(0);
@@ -66,6 +66,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			onMenuClick();
 			break;
 		case R.id.amain_view_state:
+		case R.id.amain_view_circle:
 			onStateClick();
 			break;
 		case R.id.amain_text_about:
@@ -93,14 +94,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			}
 		});
 		ValueAnimator sc = ObjectAnimator
-				.ofInt(dp10 * 24, dp10 * 19, dp10 * 24);
+				.ofInt(dp10 * 26, dp10 * 20, dp10 * 26);
 		sc.setDuration(2000);
 		sc.addUpdateListener(new AnimatorUpdateListener() {
 			@Override
 			public void onAnimationUpdate(ValueAnimator animation) {
 				int animatedValue = (Integer) animation.getAnimatedValue();
-				viewCircleOut.setScaleX(animatedValue * 1.0f / (24 * dp10));
-				viewCircleOut.setScaleY(animatedValue * 1.0f / (24 * dp10));
+				viewCircleOut.setScaleX(animatedValue * 1.0f / (26 * dp10));
+				viewCircleOut.setScaleY(animatedValue * 1.0f / (26 * dp10));
 			}
 		});
 		AnimationDrawable animationDrawable = (AnimationDrawable) imgState

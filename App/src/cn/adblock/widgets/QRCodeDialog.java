@@ -50,6 +50,9 @@ public class QRCodeDialog extends Dialog implements android.view.View.OnClickLis
 	@Override
 	public void onClick(View v) {
 		dismiss();
+		if (v.getId() == R.id.dqr_img_back) {
+			new ShareDialog(getContext()).show();
+		}
 	}
 
 }

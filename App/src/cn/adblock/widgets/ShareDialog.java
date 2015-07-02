@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cn.adblock.R;
+import cn.adblock.utils.ToastUtil;
 
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.bean.SocializeEntity;
@@ -77,9 +80,16 @@ public class ShareDialog extends Dialog implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		if (position >= mPlatforms.size() || mPlatforms.get(position) == null) {
+		if (position >= mPlatforms.size()) {
 			dismiss();
 			new QRCodeDialog(getContext()).show();
+			return;
+		}
+		if (mPlatforms.get(position) == null) {
+			ClipboardManager clip = (ClipboardManager)getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+			clip.setPrimaryClip(ClipData.newPlainText(null, "ADBlock"));
+			ToastUtil.show(getContext(), "已复制到剪切板");
+			dismiss();
 			return;
 		}
 		mController.directShare(getContext(), mPlatforms.get(position),
@@ -94,13 +104,13 @@ public class ShareDialog extends Dialog implements OnItemClickListener {
 	class GridAdapter extends BaseAdapter {
 
 		final int[] imgIds = { R.drawable.share_weibo,
-				R.drawable.share_weixin_friends, R.drawable.share_tieba,
+				R.drawable.share_weixin_friends, R.drawable.share_copy,
 				R.drawable.share_qq, R.drawable.share_weixin,
 				R.drawable.share_qzone, R.drawable.share_renren,
 				R.drawable.share_tencent, R.drawable.share_msg,
 				R.drawable.share_mail, R.drawable.share_douban,
 				R.drawable.share_qrcode };
-		final String[] items = { "新浪微博", "朋友圈", "百度贴吧", "腾讯QQ", "微信", "QQ空间",
+		final String[] items = { "新浪微博", "朋友圈", "复制", "腾讯QQ", "微信", "QQ空间",
 				"人人网", "腾讯微博", "短信", "邮件", "豆瓣", "二维码" };
 		LayoutInflater lf;
 

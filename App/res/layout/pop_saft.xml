@@ -5,13 +5,15 @@
     android:background="@drawable/stork_black"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="${relativePackage}.${activityClass}" >
+    tools:context="${relativePackage}.${activityClass}"
+    tools:ignore="RtlSymmetry,HardcodedText,RtlHardcoded" >
 
     <TextView
         android:id="@+id/ps_text_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
+        android:drawableRight="@drawable/right_green"
         android:text="通过xxx管家验证"
         android:textColor="@color/textGray"
         android:textSize="@dimen/text_m" />
@@ -22,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:paddingLeft="5dp"
+        android:drawableRight="@drawable/right_green"
         android:text="通过xxx管家验证"
         android:textColor="@color/textGray"
         android:textSize="@dimen/text_m" />
@@ -32,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:paddingLeft="5dp"
+        android:drawableRight="@drawable/right_green"
         android:text="通过xxx管家验证"
         android:textColor="@color/textGray"
         android:textSize="@dimen/text_m" />
