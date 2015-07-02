@@ -9,5 +9,7 @@
 	<dimen name="text_l">16sp</dimen>
 	<dimen name="text_s">14sp</dimen>
 	<dimen name="text_m">12sp</dimen>
+	<dimen name="text_mm">10sp</dimen>
+	
 
 </resources>

@@ -26,6 +26,13 @@
         <item name="android:textColor">@color/text_title</item>
         <item name="android:textSize">@dimen/text_big</item>
     </style>
+    
+    <style name="TitleFeedBack" parent="WrapContent">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_main</item>
+        <item name="android:textSize">@dimen/text_big</item>
+    </style>
 
     <style name="popwindow_anim_top">
         <item name="android:windowEnterAnimation">@anim/anim_top2bottom_enter</item>
@@ -37,7 +44,7 @@
         <item name="android:layout_alignParentLeft">true</item>
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/text_title</item>
+        <item name="android:textColor">@color/text_main</item>
         <item name="android:textSize">@dimen/text_normal</item>
     </style>
 

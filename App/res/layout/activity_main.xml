@@ -44,7 +44,7 @@
                 android:layout_centerInParent="true"
                 android:text="ADBlock"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="@dimen/text_big" />
 
             <ImageView
                 android:id="@+id/amain_img_menu"
@@ -127,7 +127,7 @@
                 android:gravity="center"
                 android:text="未开启过滤"
                 android:textColor="@color/text_main"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_big" />
 
             <ImageView
                 android:id="@+id/amain_img_state"
@@ -153,7 +153,7 @@
             android:padding="15dp"
             android:text="关于我们"
             android:textColor="@color/text_main"
-            android:textSize="16sp" />
+            android:textSize="@dimen/text_big" />
 
         <View
             android:layout_width="200dp"
@@ -168,7 +168,7 @@
             android:padding="15dp"
             android:text="我要分享"
             android:textColor="@color/text_main"
-            android:textSize="16sp" />
+            android:textSize="@dimen/text_big" />
 
         <View
             android:layout_width="200dp"

@@ -44,7 +44,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:text="常驻通知栏"
-                    android:textColor="@color/text_title"
+                    android:textColor="@color/text_main"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -65,7 +65,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="20dp"
                     toggle:offColor="@color/white"
-                    toggle:onColor="#0f0"
+                    toggle:onColor="#65bd12"
                     toggle:spotColor="#fff" />
             </LinearLayout>
 
@@ -88,7 +88,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:text="显示桌面悬浮窗"
-                    android:textColor="@color/text_title"
+                    android:textColor="@color/text_main"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -109,7 +109,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="20dp"
                     toggle:offColor="@color/white"
-                    toggle:onColor="#0f0"
+                    toggle:onColor="#65bd12"
                     toggle:spotColor="#fff" />
             </LinearLayout>
 
@@ -133,7 +133,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:text="开机自启动"
-                android:textColor="@color/text_title"
+                android:textColor="@color/text_main"
                 android:textSize="@dimen/text_normal" />
 
             <TextView
@@ -154,7 +154,7 @@
                 android:layout_gravity="center"
                 android:layout_marginRight="20dp"
                 toggle:offColor="@color/white"
-                toggle:onColor="#0f0"
+                toggle:onColor="#65bd12"
                 toggle:spotColor="#fff" />
         </LinearLayout>
 

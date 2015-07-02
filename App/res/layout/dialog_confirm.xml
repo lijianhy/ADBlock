@@ -25,7 +25,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="检测到新版本，是否更新"
-            android:textColor="@color/black"
+            android:textColor="@color/text_main"
             android:textSize="@dimen/text_normal" />
 
         <View

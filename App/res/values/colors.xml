@@ -24,13 +24,13 @@
     <color name="pink">#fffd7477</color>
     <color name="orange_red">#ffef3c28</color>
     <color name="identify_red">#aaff4338</color>
-    <color name="bg_line">#c3c3c3</color>
-    <color name="text_title">#191919</color>
+    <color name="bg_line">#959595</color>
+    <color name="text_title">#343434</color>
     <color name="text_main">#4c4c4c</color>
     <color name="text_version">#9d9d9d</color>
     
     <color name="btn_click">#ff4200</color>
-    <color name="btn_noclick">#ff5d3e</color>
+    <color name="btn_noclick">#ff7c33</color>
     
     <color name="common_bottom_bar_normal_bg">#00ffffff</color>
     <color name="common_bottom_bar_selected_bg">#00ffffff</color>
