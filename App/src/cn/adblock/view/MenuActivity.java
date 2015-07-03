@@ -41,7 +41,7 @@ public class MenuActivity extends BaseActivity implements OnClickListener,
 		dialog = new ConfirmDialog(this);
 		initView();
 		setListener();
-		startAnims();
+//		startAnims();
 	}
 
 	private void initView() {
@@ -58,9 +58,9 @@ public class MenuActivity extends BaseActivity implements OnClickListener,
 		views[3] = viewAbout;
 		views[4] = viewFeedback;
 		views[5] = viewCheckupdate;
-		for (View v : views) {
-			v.setVisibility(View.INVISIBLE);
-		}
+//		for (View v : views) {
+//			v.setVisibility(View.INVISIBLE);
+//		}
 	}
 
 	private void setListener() {

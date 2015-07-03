@@ -14,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import cn.adblock.R;
 import cn.adblock.app.Constans;
+import cn.adblock.app.FloatWindowService;
 import cn.adblock.utils.SharedPreferencesUtils;
 import cn.adblock.widgets.ShareDialog;
+
+import com.umeng.socialize.utils.Log;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
 
@@ -36,6 +39,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.e("tag", "oncreate================");
+		boolean isFloat = (Boolean) SharedPreferencesUtils.getParam(this,
+				Constans.KEY_IS_FLOAT, false);
+		Intent intent = new Intent(this, FloatWindowService.class);
+		intent.putExtra("isEnable", isFloat);
+		startService(intent);
 		setContentView(R.layout.activity_main);
 		viewTop = findViewById(R.id.amain_view_top);
 		viewMenu = findViewById(R.id.amain_img_menu);
@@ -157,6 +166,21 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
 	}
 
 }

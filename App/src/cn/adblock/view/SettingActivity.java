@@ -1,12 +1,16 @@
 package cn.adblock.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import cn.adblock.R;
-import cn.adblock.widgets.CheckSwitchButton;
+import cn.adblock.app.Constans;
+import cn.adblock.app.FloatWindowService;
+import cn.adblock.utils.SharedPreferencesUtils;
 
 import com.zcw.togglebutton.ToggleButton;
+import com.zcw.togglebutton.ToggleButton.OnToggleChanged;
 
 public class SettingActivity extends BaseActivity implements OnClickListener {
 	
@@ -35,6 +39,16 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 	
 	private void setListener(){
 		viewBack.setOnClickListener(this);
+		csbDesktop.setOnToggleChanged(new OnToggleChanged() {
+			
+			@Override
+			public void onToggle(boolean on) {
+				SharedPreferencesUtils.setParam(SettingActivity.this, Constans.KEY_IS_FLOAT, on);
+				Intent intent = new Intent(SettingActivity.this, FloatWindowService.class);
+				intent.putExtra("isEnable", on);
+				startService(intent);
+			}
+		});
 	}
 	
 	public void onBack(View v) {
@@ -50,5 +64,5 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 			break;
 		}
 	}
-	
+
 }
