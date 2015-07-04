@@ -16,7 +16,7 @@
     <color name="gray">#BEBEBE</color>
     <color name="white">#FFFFFF</color>
     <color name="bg_title">#FF262626</color>
-    <color name="background">#FFF0EFF5</color>
+    <color name="background">#FFF4F4F4</color>
     <color name="diving">#FFe5e5e5</color>
     <color name="view">#b3b3b3</color>
     <color name="textGray">#FF919191</color>
@@ -24,10 +24,11 @@
     <color name="pink">#fffd7477</color>
     <color name="orange_red">#ffef3c28</color>
     <color name="identify_red">#aaff4338</color>
-    <color name="bg_line">#959595</color>
+    <color name="bg_line">#c3c3c3</color>
     <color name="text_title">#343434</color>
-    <color name="text_main">#4c4c4c</color>
-    <color name="text_version">#9d9d9d</color>
+    <color name="text_main">#5c5c5c</color>
+    <color name="text_main_item">#4c4c4c</color>
+    <color name="text_version">#4c4c4c</color>
     
     <color name="btn_click">#ff4200</color>
     <color name="btn_noclick">#ff7c33</color>

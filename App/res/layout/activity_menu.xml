@@ -49,7 +49,7 @@
             android:drawablePadding="5dp"
             android:text="设置"
             android:layout_marginLeft="20dp"
-            android:textColor="@color/text_main"
+            android:textColor="@color/text_main_item"
             android:textSize="@dimen/text_normal" />
 
         <TextView
@@ -94,7 +94,7 @@
             android:drawablePadding="5dp"
             android:layout_marginLeft="20dp"
             android:text="模式"
-            android:textColor="@color/text_main"
+            android:textColor="@color/text_main_item"
             android:textSize="@dimen/text_normal" />
 
         <TextView
@@ -140,7 +140,7 @@
             android:drawablePadding="5dp"
             android:text="推荐应用"
             android:layout_marginLeft="20dp"
-            android:textColor="@color/text_main"
+            android:textColor="@color/text_main_item"
             android:textSize="@dimen/text_normal" />
 
         <TextView
@@ -194,7 +194,7 @@
             android:drawablePadding="5dp"
             android:layout_marginLeft="20dp"
             android:text="关于"
-            android:textColor="@color/text_main"
+            android:textColor="@color/text_main_item"
             android:textSize="@dimen/text_normal" />
 
         <TextView
@@ -240,7 +240,7 @@
             android:drawablePadding="5dp"
             android:layout_marginLeft="20dp"
             android:text="意见反馈"
-            android:textColor="@color/text_main"
+            android:textColor="@color/text_main_item"
             android:textSize="@dimen/text_normal" />
 
         <TextView
@@ -285,7 +285,7 @@
             android:drawablePadding="5dp"
             android:layout_marginLeft="20dp"
             android:text="检查更新"
-            android:textColor="@color/text_main"
+            android:textColor="@color/text_main_item"
             android:textSize="@dimen/text_normal" />
 
         <TextView

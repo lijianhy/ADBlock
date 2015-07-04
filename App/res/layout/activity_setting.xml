@@ -44,7 +44,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:text="常驻通知栏"
-                    android:textColor="@color/text_main"
+                    android:textColor="#626262"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -88,7 +88,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:text="显示桌面悬浮窗"
-                    android:textColor="@color/text_main"
+                    android:textColor="#626262"
                     android:textSize="@dimen/text_normal" />
 
                 <TextView
@@ -133,7 +133,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:text="开机自启动"
-                android:textColor="@color/text_main"
+                android:textColor="#626262"
                 android:textSize="@dimen/text_normal" />
 
             <TextView

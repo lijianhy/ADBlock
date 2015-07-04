@@ -126,7 +126,7 @@
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:text="未开启过滤"
-                android:textColor="@color/text_main"
+                android:textColor="@color/text_main_item"
                 android:textSize="@dimen/text_big" />
 
             <ImageView
@@ -152,7 +152,7 @@
             android:gravity="center"
             android:padding="15dp"
             android:text="关于我们"
-            android:textColor="@color/text_main"
+            android:textColor="@color/text_main_item"
             android:textSize="@dimen/text_big" />
 
         <View
@@ -167,7 +167,7 @@
             android:gravity="center"
             android:padding="15dp"
             android:text="我要分享"
-            android:textColor="@color/text_main"
+            android:textColor="@color/text_main_item"
             android:textSize="@dimen/text_big" />
 
         <View
