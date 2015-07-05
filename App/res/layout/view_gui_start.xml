@@ -2,54 +2,64 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#58abf9"
     android:orientation="vertical" >
-    
-    <ImageView 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/img_gui3"
-        android:scaleType="centerCrop"
-        />
-    
-    <LinearLayout 
+
+    <ImageView
+        android:id="@+id/gui3_img_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/gui3_path" />
+
+    <ImageView
+        android:id="@+id/gui3_img_top"
+        android:layout_width="320dp"
+        android:layout_height="120dp"
+        android:layout_above="@id/gui3_img_path"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/gui3_top" />
+
+    <LinearLayout
         android:id="@+id/vgs_view_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/gui3_img_path"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/gui_circle"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"
-        >
-        <ImageView 
+        android:orientation="horizontal" >
+
+        <ImageView
             android:id="@+id/vgs_img_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/gui_text_one"
             android:contentDescription="@string/app_name"
-            />
-        <ImageView 
+            android:src="@drawable/gui_text_one" />
+
+        <ImageView
             android:id="@+id/vgs_img_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/gui_text_two"
             android:contentDescription="@string/app_name"
-            />
-        <ImageView 
+            android:src="@drawable/gui_text_two" />
+
+        <ImageView
             android:id="@+id/vgs_img_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/gui_text_three"
             android:contentDescription="@string/app_name"
-            />
-        <ImageView 
+            android:src="@drawable/gui_text_three" />
+
+        <ImageView
             android:id="@+id/vgs_img_four"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/gui_text_four"
             android:contentDescription="@string/app_name"
-            />
+            android:src="@drawable/gui_text_four" />
     </LinearLayout>
 
 </RelativeLayout>

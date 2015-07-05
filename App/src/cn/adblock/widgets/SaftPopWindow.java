@@ -24,7 +24,7 @@ public class SaftPopWindow extends PopupWindow {
 		// 设置SelectPicPopupWindow的View
 		this.setContentView(conentView);
 		// 设置SelectPicPopupWindow弹出窗体的宽
-		this.setWidth(w - ViewUtils.dip2px(context, 14));
+		this.setWidth(w - ViewUtils.dip2px(context, 26));
 		// 设置SelectPicPopupWindow弹出窗体的高
 		this.setHeight(LayoutParams.WRAP_CONTENT);
 		// 设置SelectPicPopupWindow弹出窗体可点击

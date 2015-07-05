@@ -13,8 +13,10 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cn.adblock.R;
+import cn.adblock.app.ADBlockApp;
 import cn.adblock.app.Constans;
 import cn.adblock.app.FloatWindowService;
+import cn.adblock.utils.FloatManager;
 import cn.adblock.utils.SharedPreferencesUtils;
 import cn.adblock.widgets.ShareDialog;
 
@@ -40,11 +42,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.e("tag", "oncreate================");
-		boolean isFloat = (Boolean) SharedPreferencesUtils.getParam(this,
-				Constans.KEY_IS_FLOAT, false);
-		Intent intent = new Intent(this, FloatWindowService.class);
-		intent.putExtra("isEnable", isFloat);
-		startService(intent);
 		setContentView(R.layout.activity_main);
 		viewTop = findViewById(R.id.amain_view_top);
 		viewMenu = findViewById(R.id.amain_img_menu);
@@ -66,6 +63,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		drawable.selectDrawable(0);
 		setState((Boolean) SharedPreferencesUtils.getParam(this,
 				Constans.KEY_IS_OPEN, false));
+		updateCount();
+	}
+
+	private void updateCount() {
+		textCount.setText(String.format("%06d", 6123));
+		FloatManager.count = 6123;
 	}
 
 	@Override
@@ -103,14 +106,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			}
 		});
 		ValueAnimator sc = ObjectAnimator
-				.ofInt(dp10 * 26, dp10 * 20, dp10 * 26);
+				.ofInt(dp10 * 29, dp10 * 23, dp10 * 29);
 		sc.setDuration(2000);
 		sc.addUpdateListener(new AnimatorUpdateListener() {
 			@Override
 			public void onAnimationUpdate(ValueAnimator animation) {
 				int animatedValue = (Integer) animation.getAnimatedValue();
-				viewCircleOut.setScaleX(animatedValue * 1.0f / (26 * dp10));
-				viewCircleOut.setScaleY(animatedValue * 1.0f / (26 * dp10));
+				viewCircleOut.setScaleX(animatedValue * 1.0f / (29 * dp10));
+				viewCircleOut.setScaleY(animatedValue * 1.0f / (29 * dp10));
 			}
 		});
 		AnimationDrawable animationDrawable = (AnimationDrawable) imgState

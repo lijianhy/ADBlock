@@ -9,12 +9,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
-import android.view.animation.AnimationUtils;
-import android.view.animation.AnticipateOvershootInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import cn.adblock.R;
+import cn.adblock.app.ADBlockApp;
+import cn.adblock.app.FloatWindowService;
 import cn.adblock.utils.ToastUtil;
 import cn.adblock.widgets.ConfirmDialog;
 import cn.adblock.widgets.ConfirmDialog.ConfirmListener;
@@ -41,7 +41,7 @@ public class MenuActivity extends BaseActivity implements OnClickListener,
 		dialog = new ConfirmDialog(this);
 		initView();
 		setListener();
-//		startAnims();
+		// startAnims();
 	}
 
 	private void initView() {
@@ -58,9 +58,9 @@ public class MenuActivity extends BaseActivity implements OnClickListener,
 		views[3] = viewAbout;
 		views[4] = viewFeedback;
 		views[5] = viewCheckupdate;
-//		for (View v : views) {
-//			v.setVisibility(View.INVISIBLE);
-//		}
+		// for (View v : views) {
+		// v.setVisibility(View.INVISIBLE);
+		// }
 	}
 
 	private void setListener() {
@@ -93,14 +93,16 @@ public class MenuActivity extends BaseActivity implements OnClickListener,
 
 	Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
-			Animation inFromRight = new TranslateAnimation(  
-					Animation.RELATIVE_TO_PARENT, ((msg.what+1)/6.0f)*0.5f,  
-					Animation.RELATIVE_TO_PARENT, 0.0f,  
-					Animation.RELATIVE_TO_PARENT, 0.0f,  
-					Animation.RELATIVE_TO_PARENT, 0.0f);  
-			inFromRight.setDuration(300);  
-			inFromRight.setInterpolator(new DecelerateInterpolator());  
-			inFromRight.setAnimationListener(new SelfAnimationListener(views[msg.what]));
+			Animation inFromRight = new TranslateAnimation(
+					Animation.RELATIVE_TO_PARENT,
+					((msg.what + 1) / 6.0f) * 0.5f,
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, 0.0f);
+			inFromRight.setDuration(300);
+			inFromRight.setInterpolator(new DecelerateInterpolator());
+			inFromRight.setAnimationListener(new SelfAnimationListener(
+					views[msg.what]));
 			views[msg.what].startAnimation(inFromRight);
 		}
 	};
@@ -138,6 +140,9 @@ public class MenuActivity extends BaseActivity implements OnClickListener,
 		builder.setTitle("你确定要离开吗？");
 		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
+				MenuActivity mContext = MenuActivity.this;
+				stopService(new Intent(mContext, FloatWindowService.class));
+				ADBlockApp.clearNotification(mContext);
 				Intent intent = new Intent(Intent.ACTION_MAIN);
 				intent.addCategory(Intent.CATEGORY_HOME);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -192,18 +197,22 @@ public class MenuActivity extends BaseActivity implements OnClickListener,
 		super.onPause();
 		ToastUtil.cancel();
 	}
-	
+
 	class SelfAnimationListener implements AnimationListener {
 		View view;
+
 		public SelfAnimationListener(View view) {
 			this.view = view;
 		}
+
 		@Override
 		public void onAnimationStart(Animation animation) {
 		}
+
 		@Override
 		public void onAnimationRepeat(Animation animation) {
 		}
+
 		@Override
 		public void onAnimationEnd(Animation animation) {
 			view.setVisibility(View.VISIBLE);

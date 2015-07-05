@@ -45,7 +45,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="VPN模式"
                     android:textColor="@color/text_main"
-                    android:textSize="@dimen/text_normal" />
+                    android:textSize="@dimen/text_l" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -56,7 +56,7 @@
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:textColor="@color/textGray"
-                    android:textSize="@dimen/text_normal" />
+                    android:textSize="@dimen/text_l" />
 
                 <RadioButton
                     android:id="@+id/ams_btn_vpn"
@@ -90,7 +90,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="ROOT模式"
                     android:textColor="@color/text_main"
-                    android:textSize="@dimen/text_normal" />
+                    android:textSize="@dimen/text_l" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -101,7 +101,7 @@
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:textColor="@color/textGray"
-                    android:textSize="@dimen/text_normal" />
+                    android:textSize="@dimen/text_l" />
 
                 <RadioButton
                     android:id="@+id/ams_btn_root"

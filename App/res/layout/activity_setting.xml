@@ -22,8 +22,14 @@
             <include layout="@layout/view_title_lback" />
 
             <TextView
-                style="@style/TitleLeft"
-                android:text="设置" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
+                android:text="设置"
+                android:layout_centerVertical="true"
+                android:textColor="@color/text_main"
+                android:textSize="@dimen/text_normal" />
         </RelativeLayout>
 
         <LinearLayout
@@ -45,7 +51,7 @@
                     android:layout_weight="1"
                     android:text="常驻通知栏"
                     android:textColor="#626262"
-                    android:textSize="@dimen/text_normal" />
+                    android:textSize="@dimen/text_l" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -89,7 +95,7 @@
                     android:layout_weight="1"
                     android:text="显示桌面悬浮窗"
                     android:textColor="#626262"
-                    android:textSize="@dimen/text_normal" />
+                    android:textSize="@dimen/text_l" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -134,7 +140,7 @@
                 android:layout_weight="1"
                 android:text="开机自启动"
                 android:textColor="#626262"
-                android:textSize="@dimen/text_normal" />
+                android:textSize="@dimen/text_l" />
 
             <TextView
                 android:layout_width="0dp"

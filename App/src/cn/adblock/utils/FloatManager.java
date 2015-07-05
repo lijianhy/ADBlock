@@ -2,26 +2,31 @@ package cn.adblock.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import cn.adblock.R;
 import cn.adblock.view.MainActivity;
 
 public class FloatManager {
-	private static View floatWindow;
+	private static LinearLayout floatWindow;
 	private static LayoutParams smallWindowParams;
 	private static boolean isEnable;
 	/**
 	 * 用于控制在屏幕上添加或移除悬浮窗
 	 */
 	private static WindowManager mWindowManager;
+	public static int count;
 
 	/**
 	 * 创建一个小悬浮窗。初始位置为屏幕的右部中间位置。
@@ -34,8 +39,21 @@ public class FloatManager {
 		int screenWidth = windowManager.getDefaultDisplay().getWidth();
 		int screenHeight = windowManager.getDefaultDisplay().getHeight();
 		if (floatWindow == null) {
-			floatWindow = new Button(context);
-			floatWindow.setBackgroundResource(R.drawable.ic_launcher);
+			floatWindow = new LinearLayout(context);
+			floatWindow.setOrientation(LinearLayout.HORIZONTAL);
+			LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(
+					ViewUtils.dip2px(context, 19),
+					ViewUtils.dip2px(context, 22));
+			LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+					ViewGroup.LayoutParams.WRAP_CONTENT,
+					ViewGroup.LayoutParams.WRAP_CONTENT);
+			ImageView imgLogo = new ImageView(context);
+			imgLogo.setImageResource(R.drawable.logo_float);
+			TextView textCount = new TextView(context);
+			textCount.setTextColor(Color.parseColor("#f5f5f5"));
+			floatWindow.addView(imgLogo, lp1);
+			floatWindow.addView(textCount, lp);
+			floatWindow.setGravity(Gravity.CENTER_VERTICAL);
 			if (smallWindowParams == null) {
 				smallWindowParams = new LayoutParams();
 				smallWindowParams.type = LayoutParams.TYPE_PHONE;
@@ -43,8 +61,8 @@ public class FloatManager {
 				smallWindowParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL
 						| LayoutParams.FLAG_NOT_FOCUSABLE;
 				smallWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
-				smallWindowParams.width = 100;
-				smallWindowParams.height = 100;
+				smallWindowParams.width = LayoutParams.WRAP_CONTENT;
+				smallWindowParams.height = LayoutParams.WRAP_CONTENT;
 				smallWindowParams.x = screenWidth;
 				smallWindowParams.y = screenHeight / 2;
 			}
@@ -84,9 +102,8 @@ public class FloatManager {
 			floatWindow.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent intent = new Intent(context,
-							MainActivity.class);
-					intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
+					Intent intent = new Intent(context, MainActivity.class);
+					intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					context.startActivity(intent);
 				}
 			});
@@ -105,6 +122,13 @@ public class FloatManager {
 			WindowManager windowManager = getWindowManager(context);
 			windowManager.removeView(floatWindow);
 			floatWindow = null;
+		}
+	}
+
+	public static void updateWindowCount() {
+		if (floatWindow != null && floatWindow.getChildAt(1) != null) {
+			TextView textCount = (TextView) floatWindow.getChildAt(1);
+			textCount.setText(count + "");
 		}
 	}
 

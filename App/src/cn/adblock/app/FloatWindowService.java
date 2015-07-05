@@ -12,7 +12,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import cn.adblock.utils.FloatManager;
@@ -22,21 +21,17 @@ public class FloatWindowService extends Service {
 	private Handler handler = new Handler();
 	private Timer timer;
 	private static boolean enable;
+	private static int count;
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		return new FloatWindowBinder();
+		return null;
 	}
 	
-	class FloatWindowBinder extends Binder{
-		public FloatWindowService getService(){
-			return FloatWindowService.this;
-		}
-	}
-
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		enable = intent.getBooleanExtra("isEnable", false);
+		count = intent.getIntExtra("count", 0);
 		// 开启定时器，每隔0.5秒刷新一次
 		if (timer == null) {
 			timer = new Timer();
@@ -57,10 +52,9 @@ public class FloatWindowService extends Service {
 
 		@Override
 		public void run() {
-			// 当前界面不是其他应用，且没有悬浮窗显示，则创建悬浮窗。
-			boolean isOther = isOther();
-			if (!isOther && !FloatManager.isWindowShowing()
-					&& isEnable()) {
+			// 当前界面是桌面，且没有悬浮窗显示，则创建悬浮窗。
+			boolean isHome = isHome();
+			if (isHome && !FloatManager.isWindowShowing() && isEnable()) {
 				handler.post(new Runnable() {
 					@Override
 					public void run() {
@@ -68,25 +62,23 @@ public class FloatWindowService extends Service {
 					}
 				});
 			}
-			// 当前界面是其他应用，且有悬浮窗显示，则移除悬浮窗。
-			else if (isOther && FloatManager.isWindowShowing()
-					|| !isEnable()) {
+			// 当前界面不是桌面，且有悬浮窗显示，则移除悬浮窗。
+			else if (!isHome && FloatManager.isWindowShowing() || !isEnable()) {
 				handler.post(new Runnable() {
 					@Override
 					public void run() {
 						FloatManager.removeSmallWindow(getApplicationContext());
 					}
 				});
+			} else if (isHome & FloatManager.isWindowShowing()) {
+				// 当前界面是桌面，且有悬浮窗显示，则更新内存数据。
+				handler.post(new Runnable() {
+					@Override
+					public void run() {
+						FloatManager.updateWindowCount();
+					}
+				});
 			}
-			// else if (isHome() && FloatManager.isWindowShowing()) {
-			// // 当前界面是桌面，且有悬浮窗显示，则更新内存数据。
-			// handler.post(new Runnable() {
-			// @Override
-			// public void run() {
-			// FloatManager.updateUsedPercent(getApplicationContext());
-			// }
-			// });
-			// }
 		}
 	}
 
@@ -101,6 +93,15 @@ public class FloatWindowService extends Service {
 		boolean isSelf = getPackageName().contains(
 				rti.get(0).topActivity.getPackageName());
 		return !(isHome || isSelf);
+	}
+
+	/**
+	 * 判断当前界面是否桌面
+	 */
+	private boolean isHome() {
+		ActivityManager mActivityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+		List<RunningTaskInfo> rti = mActivityManager.getRunningTasks(1);
+		return getHomes().contains(rti.get(0).topActivity.getPackageName());
 	}
 
 	public boolean isEnable() {

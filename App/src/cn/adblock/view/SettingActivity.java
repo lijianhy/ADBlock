@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import cn.adblock.R;
+import cn.adblock.app.ADBlockApp;
 import cn.adblock.app.Constans;
 import cn.adblock.app.FloatWindowService;
 import cn.adblock.utils.SharedPreferencesUtils;
@@ -13,7 +14,7 @@ import com.zcw.togglebutton.ToggleButton;
 import com.zcw.togglebutton.ToggleButton.OnToggleChanged;
 
 public class SettingActivity extends BaseActivity implements OnClickListener {
-	
+
 	private View viewBack;
 	private ToggleButton csbNotice;
 	private ToggleButton csbDesktop;
@@ -28,29 +29,46 @@ public class SettingActivity extends BaseActivity implements OnClickListener {
 		csbNotice.toggle();
 		csbDesktop.toggle();
 		csbStart.toggle();
+		boolean isNotice = (Boolean) SharedPreferencesUtils.getParam(this, Constans.KEY_IS_NOTICE, false);
+		boolean isDesk = (Boolean) SharedPreferencesUtils.getParam(this, Constans.KEY_IS_FLOAT, false);
+		if (!isNotice) {
+			csbNotice.toggle();
+		}
+		if (!isDesk) {
+			csbDesktop.toggle();
+		}
 	}
-	
-	private void initView(){
+
+	private void initView() {
 		viewBack = (View) findViewById(R.id.about_view_back);
 		csbNotice = (ToggleButton) findViewById(R.id.as_switchbutton_notice);
 		csbDesktop = (ToggleButton) findViewById(R.id.as_switchbutton_desktop);
 		csbStart = (ToggleButton) findViewById(R.id.as_switchbutton_start);
 	}
-	
-	private void setListener(){
+
+	private void setListener() {
 		viewBack.setOnClickListener(this);
 		csbDesktop.setOnToggleChanged(new OnToggleChanged() {
-			
 			@Override
 			public void onToggle(boolean on) {
-				SharedPreferencesUtils.setParam(SettingActivity.this, Constans.KEY_IS_FLOAT, on);
-				Intent intent = new Intent(SettingActivity.this, FloatWindowService.class);
+				SharedPreferencesUtils.setParam(SettingActivity.this,
+						Constans.KEY_IS_FLOAT, on);
+				Intent intent = new Intent(SettingActivity.this,
+						FloatWindowService.class);
 				intent.putExtra("isEnable", on);
 				startService(intent);
 			}
 		});
+		csbNotice.setOnToggleChanged(new OnToggleChanged() {
+			@Override
+			public void onToggle(boolean on) {
+				ADBlockApp.onNoticeSetting(getApplicationContext(), on);
+				SharedPreferencesUtils.setParam(SettingActivity.this,
+						Constans.KEY_IS_NOTICE, on);
+			}
+		});
 	}
-	
+
 	public void onBack(View v) {
 		this.finish();
 	}

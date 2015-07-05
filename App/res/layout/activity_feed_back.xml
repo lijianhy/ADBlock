@@ -39,6 +39,7 @@
         android:background="@null"
         android:gravity="top"
         android:hint="您的意见是我们前进得动力"
+        android:textSize="@dimen/text_l"
         android:textColorHint="#9a9a9a"
         android:paddingLeft="20dp"
         android:paddingTop="10dp" />

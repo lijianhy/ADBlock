@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="10dp"
-            android:background="@color/orange_red" />
+            android:background="@color/btn_noclick" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/selector_btn_leftbottom"
                 android:text="立即更新"
-                android:textColor="@color/orange_red"
+                android:textColor="@color/btn_noclick"
                 android:layout_marginLeft="1dp"
                 android:layout_marginBottom="1dp"
                 android:padding="5dp"
@@ -55,7 +55,7 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="@color/orange_red" />
+                android:background="@color/btn_noclick" />
 
             <Button
                 android:id="@+id/dc_btn_cancel"
@@ -67,7 +67,7 @@
                 android:layout_marginRight="1dp"
                 android:layout_marginBottom="1dp"
                 android:text="取消"
-                android:textColor="@color/orange_red"
+                android:textColor="@color/btn_noclick"
                 android:textSize="@dimen/text_normal" />
         </LinearLayout>
     </LinearLayout>

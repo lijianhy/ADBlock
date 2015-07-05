@@ -28,12 +28,14 @@
             android:id="@+id/amain_view_title"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp" >
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_centerVertical="true"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/title_logo" />
@@ -44,7 +46,7 @@
                 android:layout_centerInParent="true"
                 android:text="ADBlock"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_big" />
+                android:textSize="@dimen/text_normal" />
 
             <ImageView
                 android:id="@+id/amain_img_menu"
@@ -61,47 +63,50 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/amain_view_title"
-            android:layout_marginBottom="20dp" >
+            android:layout_marginBottom="15dp" >
 
             <View
                 android:id="@+id/amain_view_circle"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/oval_red" />
 
             <View
                 android:id="@+id/amain_view_circleout"
-                android:layout_width="260dp"
-                android:layout_height="260dp"
+                android:layout_width="290dp"
+                android:layout_height="290dp"
                 android:layout_centerInParent="true"
                 android:background="@drawable/oval_green_out" />
 
-            <View
-                android:id="@+id/amian_view_center"
+            <View 
+                android:id="@+id/amain_view_center"
                 android:layout_width="1dp"
-                android:layout_height="20dp"
-                android:layout_centerInParent="true" />
-
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                />
+            
             <TextView
                 android:id="@+id/amain_text_count"
+                android:layout_alignTop="@id/amain_view_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/amian_view_center"
                 android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:text="000625"
                 android:textColor="@color/white"
-                android:textSize="40sp" />
-
+                android:textSize="53sp" />
+            
             <TextView
                 android:id="@+id/amain_text_counttop"
+                android:layout_above="@id/amain_text_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/amian_view_center"
                 android:layout_centerHorizontal="true"
                 android:text="已阻止骚扰次数"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
+
         </RelativeLayout>
     </RelativeLayout>
 
@@ -117,7 +122,7 @@
             android:id="@+id/amain_view_state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp" >
+            android:padding="18dp" >
 
             <TextView
                 android:id="@+id/amain_text_state"
@@ -126,8 +131,8 @@
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:text="未开启过滤"
-                android:textColor="@color/text_main_item"
-                android:textSize="@dimen/text_big" />
+                android:textColor="@color/text_main"
+                android:textSize="@dimen/text_l" />
 
             <ImageView
                 android:id="@+id/amain_img_state"
@@ -150,10 +155,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="15dp"
+            android:padding="18dp"
             android:text="关于我们"
-            android:textColor="@color/text_main_item"
-            android:textSize="@dimen/text_big" />
+            android:textColor="@color/text_main"
+            android:textSize="@dimen/text_l" />
 
         <View
             android:layout_width="200dp"
@@ -165,10 +170,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="15dp"
+            android:padding="18dp"
             android:text="我要分享"
-            android:textColor="@color/text_main_item"
-            android:textSize="@dimen/text_big" />
+            android:textColor="@color/text_main"
+            android:textSize="@dimen/text_l" />
 
         <View
             android:layout_width="200dp"
@@ -180,7 +185,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="ADBlock广告过滤大师 版本：1.0.0.1000"
-            android:textColor="@color/text_version"
+            android:textColor="@color/text_main"
             android:textSize="13sp" />
     </LinearLayout>
 
